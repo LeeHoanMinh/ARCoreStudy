@@ -38,7 +38,6 @@ public class ARTapToPlaceObject : MonoBehaviour
 
     void Update()
     {
-
         UpdatePlacementPose();
         UpdatePlacementIndicator();
         UpdatePlaceObject();

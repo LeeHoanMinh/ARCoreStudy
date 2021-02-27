@@ -57,9 +57,5 @@ public class PlaneEnable : MonoBehaviour
             toggle.GetComponentInChildren<Text>().text = "Enable AR Plane Detection";
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
