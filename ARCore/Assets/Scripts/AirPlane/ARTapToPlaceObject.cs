@@ -15,6 +15,9 @@ public class ARTapToPlaceObject : MonoBehaviour
     public GameObject placementIndicator;
     public GameObject previewPlaneIndicator;
     public GameObject previewState;
+    public GameObject tower;
+
+
 
     public GameObject title;
     public GameObject UIcanvas;
@@ -29,7 +32,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     {
         arOrigin = FindObjectOfType<ARSessionOrigin>();
         previewState.SetActive(false);
-        //PlaceObject(planeToPlace);
+        //PlaceObject(tower);
 
     }
 
@@ -52,7 +55,7 @@ public class ARTapToPlaceObject : MonoBehaviour
     void UpdatePlaceObject()
     {
         if (planeIsAffected)
-        {
+        {       
             if (placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
@@ -78,6 +81,7 @@ public class ARTapToPlaceObject : MonoBehaviour
         newObject = Instantiate(objectToPlace);
 
         newObject.transform.position = new Vector3(placementPose.position.x, placementPose.position.y + newObject.transform.position.y, placementPose.position.z);
+        
         //Place Title
         GameObject newTitle;
         newTitle = Instantiate(title);
@@ -87,6 +91,11 @@ public class ARTapToPlaceObject : MonoBehaviour
             newTitle.GetComponentInChildren<Text>().text = Vector3.Distance(placementIndicator.transform.position, RealPlane.transform.position).ToString();
         newTitle.SetActive(true);
         return newObject;
+    }
+
+    public void PlaceTower()
+    {
+        PlaceObject(tower);
     }
 
     void UpdatePlacementIndicator()
