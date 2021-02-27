@@ -29,7 +29,8 @@ public class PlaneEnable : MonoBehaviour
 
     void AffectPlane()
     {
-        manager.planeIsAffected = !manager.planeIsAffected;
+        manager.TogglePlaneAffect();
+        
         if(manager.planeIsAffected)
         {
             affectPlan.GetComponentInChildren<Text>().text = "Affect Plan: On";
