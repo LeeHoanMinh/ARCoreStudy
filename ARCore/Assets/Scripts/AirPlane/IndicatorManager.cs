@@ -23,6 +23,10 @@ public class IndicatorManager : MonoBehaviour
     public GameObject[] indicatorTypes;
 
     Pose placementPose;
+    public Pose PlacementPose
+    {
+        get { return placementPose; }
+    }
     bool placementPoseIsValid = false;
 
     void Awake()
@@ -55,7 +59,7 @@ public class IndicatorManager : MonoBehaviour
                 if (currentPlane.CheckObjectInPlaneRadius(placementIndicator.transform.position))
                 {
                     //Set Indicator On Plane;
-                    placementIndicator.transform.position += new Vector3(0f, currentPlane.transform.position.y + 0.0001f,0f);
+                    placementIndicator.transform.position += new Vector3(0f, currentPlane.transform.localScale.y + 0.0001f,0f);
                 }
             }
         }
@@ -86,8 +90,14 @@ public class IndicatorManager : MonoBehaviour
         GameObject.Destroy(tmp);
     }
 
+    public void SetPlacementIndicatorByDefault()
+    {
+        GameObject tmp = placementIndicator;
+        placementIndicator = Instantiate(defaultIndicatorType);
+        GameObject.Destroy(tmp);
+    }
     public void ResizePlacementIndicator(Vector3 newSize)
     {
-        placementIndicator.transform.localScale = newSize;
+        placementIndicator.GetComponentInChildren<DefaultPlane>().ResizePlane(newSize);
     }
 }

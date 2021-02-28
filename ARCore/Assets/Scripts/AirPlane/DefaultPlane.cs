@@ -17,4 +17,9 @@ public class DefaultPlane : MonoBehaviour
         xzDistance = Mathf.Sqrt(xDistance * xDistance + zDistance * zDistance);
         return (xzDistance <= planeRadius/2); 
     }
+
+    public void ResizePlane(Vector3 newSize)
+    {
+        this.transform.localScale = newSize;
+    }
 }

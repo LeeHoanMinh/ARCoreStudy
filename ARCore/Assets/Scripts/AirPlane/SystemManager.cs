@@ -8,7 +8,11 @@ public class SystemManager : MonoBehaviour
 
     public GameObject currentObjectToSpawn;
     public DefaultPlane currentPlane;
-
+    int systemState = 0;
+    public int SystemState
+    {
+        get { return systemState; }
+    }
     private void Awake()
     {
         if(instance == null)
@@ -19,8 +23,16 @@ public class SystemManager : MonoBehaviour
 
     public void ActivatePlaneInitialization()
     {
+        systemState = 1;
         IndicatorManager.instance.SetPlacementIndicatorById(0);
         currentObjectToSpawn = ObjectsManager.instance.objectToSpawn[0];
+    }
+
+    public void FinishPlaneInitialization()
+    {
+        systemState = 2;
+        IndicatorManager.instance.SetPlacementIndicatorByDefault();
+        currentObjectToSpawn = ObjectsManager.instance.objectToSpawn[1];
     }
 }
 

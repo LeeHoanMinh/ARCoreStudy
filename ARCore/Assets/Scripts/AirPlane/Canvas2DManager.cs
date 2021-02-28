@@ -16,6 +16,12 @@ public class Canvas2DManager : MonoBehaviour
 
     [SerializeField]
     Button placeObjectButton;
+
+    [SerializeField]
+    Button resetSceneButton;
+
+    [SerializeField]
+    Button finishPutPlaneButton;
     private void Start()
     {
         arPlaneManager = FindObjectOfType<ARPlaneManager>();
@@ -33,8 +39,22 @@ public class Canvas2DManager : MonoBehaviour
         {
             placeObjectButton.onClick.AddListener(PlaceObject);
         }
+
+        if(resetSceneButton != null)
+        {
+            resetSceneButton.onClick.AddListener(ResetScene);
+        }
+
+        if(finishPutPlaneButton != null)
+        {
+            finishPutPlaneButton.onClick.AddListener(FinishPutPlane);
+        }
     }
 
+    void ResetScene()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
     void ToggleARPlane()
     {
         arPlaneManager.enabled = !arPlaneManager.enabled;
@@ -53,12 +73,30 @@ public class Canvas2DManager : MonoBehaviour
     }
 
     void PutOriginalPlane()
-    {
+    {   
         SystemManager.instance.ActivatePlaneInitialization();
+        finishPutPlaneButton.gameObject.SetActive(true);
+        putOriginalPlaneButton.gameObject.SetActive(false);
     }
 
     void PlaceObject()
     {
-        SpawningManager.instance.SpawnPlane(SystemManager.instance.currentObjectToSpawn);
+        if (SystemManager.instance.SystemState == 1)
+        {
+            SpawningManager.instance.SpawnPlane(SystemManager.instance.currentObjectToSpawn);
+        }
+        else
+        {
+            Vector3 objectPosition;
+            objectPosition = IndicatorManager.instance.PlacementIndicator.transform.position - SpawningManager.instance.OriginalTranslate.position;
+            objectPosition += new Vector3(0f, 0.05f,0f);
+            SpawningManager.instance.SpawnObjectByPosition(SystemManager.instance.currentObjectToSpawn, objectPosition);
+        }
+    }
+
+    void FinishPutPlane()
+    {
+        SystemManager.instance.FinishPlaneInitialization();
+        finishPutPlaneButton.gameObject.SetActive(false);
     }
 }

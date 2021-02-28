@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PreviewPlaneSlider : MonoBehaviour
 {
-    [SerializeField]
     Slider slider;
     void Start()
     { 
@@ -15,7 +14,8 @@ public class PreviewPlaneSlider : MonoBehaviour
     void ChangePlaneSize()
     {
         GameObject placementIndicator = IndicatorManager.instance.PlacementIndicator;
-        IndicatorManager.instance.ResizePlacementIndicator(new Vector3(0.1f + 1.9f * slider.value, placementIndicator.transform.localScale.y, 0.1f + 1.9f * slider.value));
+        Vector3 planeSize = placementIndicator.GetComponentInChildren<DefaultPlane>().transform.localScale;
+        IndicatorManager.instance.ResizePlacementIndicator(new Vector3(0.1f + 1.9f * slider.value, planeSize.y, 0.1f + 1.9f * slider.value));
     }
 
  
