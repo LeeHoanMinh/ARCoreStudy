@@ -22,23 +22,30 @@ public class SpawningManager : MonoBehaviour
     public void SpawnObjectByPosition(GameObject objectToSpawn, Vector3 objectPosition)
     {
         GameObject newObject;
-        Vector3 newObjectPosition = objectToSpawn.transform.position;
-        Quaternion newObjectRotation = objectToSpawn.transform.rotation;
-        newObjectPosition += objectPosition;
 
-        newObject = Instantiate(objectToSpawn, newObjectPosition + originTranslate.position, originTranslate.rotation * newObjectRotation);
-        
+        newObject = Instantiate(objectToSpawn, SystemManager.instance.planeAnchor.transform);
+        newObject.transform.localPosition = objectPosition;
     }
 
     public void SpawnPlane(GameObject plane)
     {
         if (SystemManager.instance.currentPlane != null)
-            GameObject.Destroy(SystemManager.instance.currentPlane.gameObject);
+        {
+            GameObject.Destroy(SystemManager.instance.planeAnchor);
+        }
+
+        GameObject newAnchor;
+        
         originTranslate = IndicatorManager.instance.PlacementPose;
+        newAnchor = Instantiate(ObjectsManager.instance.defaultAnchor, originTranslate.position, originTranslate.rotation);
+        
         GameObject newObject;
-        newObject = Instantiate(plane, originTranslate.position, originTranslate.rotation);
+        newObject = Instantiate(plane,newAnchor.transform);
         newObject.transform.localScale = IndicatorManager.instance.PlacementIndicator.GetComponentInChildren<DefaultPlane>().transform.localScale;
+
+        SystemManager.instance.planeAnchor = newAnchor;
         SystemManager.instance.currentPlane = newObject.GetComponent<DefaultPlane>();
+        
     }
 
 }
