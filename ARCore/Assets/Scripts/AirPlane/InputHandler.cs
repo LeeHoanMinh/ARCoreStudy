@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class InputHandler : MonoBehaviour
 {
+    [SerializeField]
+    Camera arCamera;
     void Update()
     {
         if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -17,6 +19,15 @@ public class InputHandler : MonoBehaviour
             else
             {
                 //Tap on screen element
+                Ray ray = arCamera.ScreenPointToRay(Input.GetTouch(0).position);
+                RaycastHit hitObject;
+                if(Physics.Raycast(ray, out hitObject))
+                {
+                    GameObject gameObject = hitObject.transform.gameObject;
+                    if ((gameObject != null) && (gameObject.tag == "Enemy"))
+                        gameObject.GetComponent<Enemy>().BeShot();
+
+                }
             }
         }
     }

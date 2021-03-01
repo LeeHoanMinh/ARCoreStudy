@@ -8,8 +8,9 @@ public class Spawning : MonoBehaviour
     public GameObject parent;
     void Start()
     {
-        Instantiate(cube, parent.transform);
-
+        GameObject newGame = Instantiate(cube,parent.transform);
+        //newGame.transform.rotation = parent.transform.rotation * newGame.transform.rotation;
+        newGame.transform.localPosition = new Vector3(0f, 4f, 0f);
     }
 
 }

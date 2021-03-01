@@ -29,6 +29,13 @@ public class SpawningManager : MonoBehaviour
         newObject.transform.rotation = originTranslate.rotation * newObject.transform.rotation;
     }
 
+    public void SpawnObjectByIndicator(GameObject objectToSpawn)
+    {
+        GameObject newObject;
+
+        newObject = Instantiate(objectToSpawn,IndicatorManager.instance.PlacementIndicator.transform.position,IndicatorManager.instance.PlacementIndicator.transform.rotation * objectToSpawn.transform.rotation);
+    }
+
     public void SpawnPlane(GameObject plane)
     {
         if (SystemManager.instance.currentPlane != null)
@@ -46,4 +53,24 @@ public class SpawningManager : MonoBehaviour
         
     }
 
+
+    public Vector3 TransformPositionToRealWorld(Vector3 position)
+    {
+        return position + originTranslate.position;
+    }
+
+    public Vector3 TransformPositionToUnity(Vector3 position)
+    {
+        return position - originTranslate.position;
+    }
+
+    public Quaternion TransformRotationToRealWorld(Quaternion rotation)
+    {
+        return originTranslate.rotation * rotation;
+    }
+
+    public Quaternion TransformRotationToUnity(Quaternion rotation)
+    {
+        return rotation * Quaternion.Inverse(originTranslate.rotation);
+    }
 }
