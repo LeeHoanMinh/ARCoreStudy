@@ -88,7 +88,7 @@ public class Canvas2DManager : MonoBehaviour
         else
         {
             Vector3 objectPosition;
-            objectPosition = IndicatorManager.instance.PlacementIndicator.transform.position - SpawningManager.instance.OriginalTranslate.position;
+            objectPosition =  IndicatorManager.instance.PlacementIndicator.transform.position - SpawningManager.instance.OriginalTranslate.position;
             //objectPosition += new Vector3(0f, 0.05f,0f);
             SpawningManager.instance.SpawnObjectByPosition(SystemManager.instance.currentObjectToSpawn, objectPosition);
         }

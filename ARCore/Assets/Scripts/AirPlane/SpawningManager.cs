@@ -37,7 +37,7 @@ public class SpawningManager : MonoBehaviour
         GameObject newAnchor;
         
         originTranslate = IndicatorManager.instance.PlacementPose;
-        newAnchor = Instantiate(ObjectsManager.instance.defaultAnchor, originTranslate.position, originTranslate.rotation);
+        newAnchor = Instantiate(ObjectsManager.instance.defaultAnchor, originTranslate.position, Quaternion.Inverse(originTranslate.rotation));
         
         GameObject newObject;
         newObject = Instantiate(plane,newAnchor.transform);
