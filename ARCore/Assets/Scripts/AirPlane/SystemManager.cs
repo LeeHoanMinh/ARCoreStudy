@@ -8,7 +8,6 @@ public class SystemManager : MonoBehaviour
 
     public GameObject currentObjectToSpawn;
     public DefaultPlane currentPlane;
-    public GameObject planeAnchor;
 
     int systemState = 0;
     public int SystemState

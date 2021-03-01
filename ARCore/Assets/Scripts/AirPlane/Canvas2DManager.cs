@@ -17,8 +17,6 @@ public class Canvas2DManager : MonoBehaviour
     [SerializeField]
     Button placeObjectButton;
 
-    [SerializeField]
-    Button resetSceneButton;
 
     [SerializeField]
     Button finishPutPlaneButton;
@@ -40,21 +38,13 @@ public class Canvas2DManager : MonoBehaviour
             placeObjectButton.onClick.AddListener(PlaceObject);
         }
 
-        if(resetSceneButton != null)
-        {
-            resetSceneButton.onClick.AddListener(ResetScene);
-        }
-
         if(finishPutPlaneButton != null)
         {
             finishPutPlaneButton.onClick.AddListener(FinishPutPlane);
         }
     }
 
-    void ResetScene()
-    {
-        Application.LoadLevel(Application.loadedLevel);
-    }
+ 
     void ToggleARPlane()
     {
         arPlaneManager.enabled = !arPlaneManager.enabled;
