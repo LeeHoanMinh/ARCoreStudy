@@ -56,7 +56,7 @@ public class SpawningManager : MonoBehaviour
     {
         if (SystemManager.instance.currentPlane != null)
         {
-            GameObject.Destroy(SystemManager.instance.currentPlane);
+            GameObject.Destroy(SystemManager.instance.currentPlane.gameObject);
         }
 
         originTranslate = IndicatorManager.instance.PlacementPose;

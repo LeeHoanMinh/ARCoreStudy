@@ -10,21 +10,23 @@ public class CameraController : MonoBehaviour
     float mouseSpeed = 0.1f;
     void Update()
     {
+        Vector3 forwardDirection = this.transform.forward;
+        forwardDirection = new Vector3(forwardDirection.x, 0f, forwardDirection.z);
         if (Input.GetKey(KeyCode.W))
         {
-            this.transform.position += new Vector3(0f, 0f, keyboardSpeed * Time.deltaTime);
+            this.transform.position += forwardDirection * keyboardSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            this.transform.position -= new Vector3(0f, 0f, keyboardSpeed * Time.deltaTime);
+            this.transform.position -= forwardDirection * keyboardSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            this.transform.position += new Vector3(keyboardSpeed * Time.deltaTime,0f , 0f);
+            this.transform.position -= new Vector3(-forwardDirection.z, 0f, forwardDirection.x) * keyboardSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            this.transform.position -= new Vector3(keyboardSpeed * Time.deltaTime,0f ,0f);
+            this.transform.position += new Vector3(-forwardDirection.z, 0f, forwardDirection.x) * keyboardSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.Space))
         {

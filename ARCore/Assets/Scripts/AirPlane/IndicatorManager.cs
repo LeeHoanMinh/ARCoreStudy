@@ -9,9 +9,9 @@ public class IndicatorManager : MonoBehaviour
 {
     public static IndicatorManager instance;
     bool isActive = false;
- 
+    
     ARSessionOrigin arSessionOrigin;
-
+    Camera currentCamera;
     GameObject placementIndicator;
     public GameObject PlacementIndicator
     {
@@ -38,7 +38,8 @@ public class IndicatorManager : MonoBehaviour
 
     void Start()
     {
-        arSessionOrigin = FindObjectOfType<ARSessionOrigin>();    
+        arSessionOrigin = FindObjectOfType<ARSessionOrigin>();
+        currentCamera = ModeManager.instance.GetMainCamera();
     }
 
     private void Update()
@@ -49,8 +50,6 @@ public class IndicatorManager : MonoBehaviour
 
     void UpdatePlacementIndicator()
     {
-
-
         if (placementPoseIsValid)
         {
             placementIndicator.SetActive(true);
@@ -76,10 +75,10 @@ public class IndicatorManager : MonoBehaviour
 
     void UpdatePlacementPose()
     {
-        if (EditorManager.instance.InEditorMode())
+        if (ModeManager.instance.InEditorMode())
         {
             RaycastHit hit;
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+            Ray ray = currentCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
             if (Physics.Raycast(ray, out hit))
             {
 
@@ -94,7 +93,7 @@ public class IndicatorManager : MonoBehaviour
         }
         else
         {
-            var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+            var screenCenter = currentCamera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
             var hits = new List<ARRaycastHit>();
             arSessionOrigin.GetComponent<ARRaycastManager>().Raycast(screenCenter, hits, TrackableType.Planes);
             placementPoseIsValid = hits.Count > 0;

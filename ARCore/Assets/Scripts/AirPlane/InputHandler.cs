@@ -5,8 +5,15 @@ using UnityEngine.EventSystems;
 
 public class InputHandler : MonoBehaviour
 {
+
     [SerializeField]
-    Camera arCamera;
+    Camera currentCamera;
+
+    void Start()
+    {
+        currentCamera = ModeManager.instance.GetMainCamera();    
+    }
+
     void Update()
     {
         if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -19,7 +26,7 @@ public class InputHandler : MonoBehaviour
             else
             {
                 //Tap on screen element
-                Ray ray = arCamera.ScreenPointToRay(Input.GetTouch(0).position);
+                Ray ray = currentCamera.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hitObject;
 
                 if(Physics.Raycast(ray, out hitObject))
@@ -33,7 +40,7 @@ public class InputHandler : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(0))
         {
-            Ray ray = arCamera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = currentCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitObject;
             if (Physics.Raycast(ray, out hitObject))
             {
