@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Canvas2DManager : MonoBehaviour
 {
+    public static Canvas2DManager instance;
     ARPlaneManager arPlaneManager;
 
     [SerializeField]
@@ -20,6 +21,12 @@ public class Canvas2DManager : MonoBehaviour
 
     [SerializeField]
     Button finishPutPlaneButton;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
     private void Start()
     {
         arPlaneManager = FindObjectOfType<ARPlaneManager>();
@@ -62,27 +69,29 @@ public class Canvas2DManager : MonoBehaviour
         }
     }
 
-    void PutOriginalPlane()
+    public void PutOriginalPlane()
     {   
         SystemManager.instance.ActivatePlaneInitialization();
         finishPutPlaneButton.gameObject.SetActive(true);
         putOriginalPlaneButton.gameObject.SetActive(false);
     }
 
-    void PlaceObject()
+    public void PlaceObject()
     {
-        if (SystemManager.instance.SystemState == 1)
+        if (SystemManager.instance.SystemState == GameState.PlacePlane)
         {
+            Debug.Log(SystemManager.instance.SystemState);
             SpawningManager.instance.SpawnPlane(SystemManager.instance.currentObjectToSpawn);
         }
         else
         {
+            Debug.Log(SystemManager.instance.SystemState);
             SpawningManager.instance.SpawnObjectByIndicator(SystemManager.instance.currentObjectToSpawn);
             
         }
     }
 
-    void FinishPutPlane()
+    public void FinishPutPlane()
     {
         SystemManager.instance.FinishPlaneInitialization();
         finishPutPlaneButton.gameObject.SetActive(false);

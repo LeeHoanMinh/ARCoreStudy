@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AirButton : MonoBehaviour
+public class GUILookAt : MonoBehaviour
 {
     Camera currentCamera;
     void Start()

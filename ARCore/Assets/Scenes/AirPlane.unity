@@ -274,10 +274,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultAnchor: {fileID: 6984121022789230882, guid: a855c11e7cfeb3d4cbb12a3465fb5813, type: 3}
   enemyHeathBar: {fileID: 1379237780734541433, guid: b8f7e214714a27b4386324068b195379, type: 3}
-  objectToSpawn:
-  - {fileID: 6403831254852818238, guid: b5c180270a0ef9c4cacd6050e5c68647, type: 3}
-  - {fileID: 100000, guid: bd16a121ccdf0674daacc3277d88c3c0, type: 3}
-  - {fileID: 1582112111176492, guid: d1b1882db25d6fc4f8ff52b752db2e26, type: 3}
+  ground: {fileID: 6403831254852818238, guid: b5c180270a0ef9c4cacd6050e5c68647, type: 3}
+  airplane: {fileID: 100000, guid: bd16a121ccdf0674daacc3277d88c3c0, type: 3}
+  building: {fileID: 1582112111176492, guid: d1b1882db25d6fc4f8ff52b752db2e26, type: 3}
 --- !u!4 &286266799
 Transform:
   m_ObjectHideFlags: 0
@@ -1024,7 +1023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17aec8c74fe207b418a0b4d89e6de269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCamera: {fileID: 0}
 --- !u!4 &1064100995
 Transform:
   m_ObjectHideFlags: 0

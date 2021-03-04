@@ -17,14 +17,7 @@ public class SpawningManager : MonoBehaviour
     {
         originTranslate.position = new Vector3(0f, 0f, 0f);
         originTranslate.rotation = new Quaternion(0f, 0f, 0f, 0f);
-        /*
-        GameObject newG = Instantiate(ObjectsManager.instance.objectToSpawn[2]);
-        SystemManager.instance.mainBuilding = newG.GetComponent<MainBuilding>();
-        SystemManager.instance.mainBuilding.BuildingSetUp(30);
-        
-        newG = Instantiate(ObjectsManager.instance.objectToSpawn[1]);
-        newG.transform.position += new Vector3(.5f, 0f, 0f);
-        */
+ 
         
 
         if (instance == null)
@@ -60,7 +53,7 @@ public class SpawningManager : MonoBehaviour
         }
 
         originTranslate = IndicatorManager.instance.PlacementPose;
-
+        Debug.Log(originTranslate);
         GameObject newObject;
         newObject = Instantiate(plane, originTranslate.position, originTranslate.rotation);
         newObject.transform.localScale = IndicatorManager.instance.PlacementIndicator.GetComponentInChildren<DefaultPlane>().transform.localScale;
@@ -71,10 +64,13 @@ public class SpawningManager : MonoBehaviour
 
     public void SpawnBuilding(GameObject building)
     {
+        Debug.Log("Spawn Building");
         GameObject newObject;
         newObject = Instantiate(building);
         newObject.transform.position = newObject.transform.position + originTranslate.position;
         newObject.transform.rotation = originTranslate.rotation * newObject.transform.rotation;
+        Debug.Log(newObject);
+        Debug.Log(newObject.transform.position);
         SystemManager.instance.mainBuilding = newObject.GetComponent<MainBuilding>();
     }
 

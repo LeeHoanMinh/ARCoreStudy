@@ -9,11 +9,12 @@ public class SystemManager : MonoBehaviour
     public GameObject currentObjectToSpawn;
     public DefaultPlane currentPlane;
     public MainBuilding mainBuilding;
-    int systemState = 0;
-    public int SystemState
+    GameState systemState;
+    public GameState SystemState
     {
         get { return systemState; }
     }
+
     private void Awake()
     {
         if(instance == null)
@@ -24,19 +25,19 @@ public class SystemManager : MonoBehaviour
 
     public void ActivatePlaneInitialization()
     {
-        systemState = 1;
+        systemState = GameState.PlacePlane;
         IndicatorManager.instance.SetPlacementIndicatorById(0);
-        currentObjectToSpawn = ObjectsManager.instance.objectToSpawn[0];
+        currentObjectToSpawn = ObjectsManager.instance.ground;
     }
 
     public void FinishPlaneInitialization()
     {
-        systemState = 2;
+        systemState = GameState.StartGame;
         IndicatorManager.instance.SetPlacementIndicatorByDefault();
 
-        SpawningManager.instance.SpawnBuilding(ObjectsManager.instance.objectToSpawn[2]);
+        SpawningManager.instance.SpawnBuilding(ObjectsManager.instance.building);
         //mainBuilding.BuildingSetUp(30);
-        currentObjectToSpawn = ObjectsManager.instance.objectToSpawn[1];
+        currentObjectToSpawn = ObjectsManager.instance.airplane;
     }
 }
 

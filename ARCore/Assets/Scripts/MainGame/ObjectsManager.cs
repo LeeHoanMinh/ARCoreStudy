@@ -7,7 +7,9 @@ public class ObjectsManager : MonoBehaviour
     public static ObjectsManager instance;
     public GameObject defaultAnchor;
     public GameObject enemyHeathBar;
-    public GameObject[] objectToSpawn;
+    public GameObject ground;
+    public GameObject airplane;
+    public GameObject building;
 
     private void Awake()
     {
