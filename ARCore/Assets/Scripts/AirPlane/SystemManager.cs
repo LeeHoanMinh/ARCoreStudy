@@ -8,7 +8,7 @@ public class SystemManager : MonoBehaviour
 
     public GameObject currentObjectToSpawn;
     public DefaultPlane currentPlane;
-
+    public MainBuilding mainBuilding;
     int systemState = 0;
     public int SystemState
     {
@@ -33,6 +33,9 @@ public class SystemManager : MonoBehaviour
     {
         systemState = 2;
         IndicatorManager.instance.SetPlacementIndicatorByDefault();
+
+        SpawningManager.instance.SpawnBuilding(ObjectsManager.instance.objectToSpawn[2]);
+        //mainBuilding.BuildingSetUp(30);
         currentObjectToSpawn = ObjectsManager.instance.objectToSpawn[1];
     }
 }

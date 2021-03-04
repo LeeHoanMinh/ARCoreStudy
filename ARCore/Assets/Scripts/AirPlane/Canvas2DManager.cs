@@ -78,6 +78,7 @@ public class Canvas2DManager : MonoBehaviour
         else
         {
             SpawningManager.instance.SpawnObjectByIndicator(SystemManager.instance.currentObjectToSpawn);
+            
         }
     }
 

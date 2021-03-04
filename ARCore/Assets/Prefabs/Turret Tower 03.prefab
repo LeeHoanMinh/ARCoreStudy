@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23505487763558228}
   - component: {fileID: 5951692718436160896}
   - component: {fileID: 7761270696578430339}
+  - component: {fileID: 6968577122196079655}
   m_Layer: 0
   m_Name: Turret Tower 03
   m_TagString: Untagged
@@ -115,6 +116,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60eeabe86b0d8a46ab2577a829b6159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6968577122196079655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582112111176492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d645be51f312bc43998a303e8cb985d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 30
+  maxHealth: 30
 --- !u!1 &1755999500637138
 GameObject:
   m_ObjectHideFlags: 0

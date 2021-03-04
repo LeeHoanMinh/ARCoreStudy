@@ -21,12 +21,28 @@ public class InputHandler : MonoBehaviour
                 //Tap on screen element
                 Ray ray = arCamera.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hitObject;
+
                 if(Physics.Raycast(ray, out hitObject))
                 {
                     GameObject gameObject = hitObject.transform.gameObject;
                     if ((gameObject != null) && (gameObject.tag == "Enemy"))
                         gameObject.GetComponent<Enemy>().BeShot();
 
+                }
+            }
+        }
+        if(Input.GetMouseButtonDown(0))
+        {
+            Ray ray = arCamera.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitObject;
+            if (Physics.Raycast(ray, out hitObject))
+            {
+               
+                GameObject gameObject = hitObject.transform.gameObject;
+                if ((gameObject != null) && (gameObject.tag == "Enemy"))
+                {
+                    Debug.Log("shot");
+                    gameObject.GetComponent<Enemy>().BeShot();
                 }
             }
         }

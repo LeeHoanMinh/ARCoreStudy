@@ -13,11 +13,6 @@ public class Plane : MonoBehaviour {
 	float angle;
 	public bool engenOn;
 
-
-	private void Start()
-	{
-		StartCoroutine(MoveUp());
-	}
 	void Update () 
 	{
 		if (engenOn) {
