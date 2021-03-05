@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class MainBuilding : MonoBehaviour
 {
     [SerializeField]
-    int health = 30;
+    int health;
     [SerializeField]
-    int maxHealth = 30;
+    int maxHealth = 1;
     GameObject buildingHealthBar;
     Image buildingHealthComponent;
     private void Start()
     {
         buildingHealthBar = Instantiate(ObjectsManager.instance.enemyHeathBar);
         buildingHealthBar.name = "BuildingHealthBar";
-        buildingHealthBar.transform.parent = GameObject.Find("WorldSpaceCanvas").transform;
+        buildingHealthBar.transform.SetParent(GameObject.Find("WorldSpaceCanvas").transform);
         buildingHealthComponent = buildingHealthBar.transform.GetChild(0).GetComponent<Image>();
     }
 
@@ -29,6 +29,7 @@ public class MainBuilding : MonoBehaviour
     public void BeShot()
     {
         health--;
+        GameObject minus = Instantiate(ObjectsManager.instance.minusHealth, buildingHealthBar.transform);
         if (health == 0)
         {
             Destroy(buildingHealthBar);

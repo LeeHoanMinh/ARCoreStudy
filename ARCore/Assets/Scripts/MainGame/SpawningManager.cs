@@ -64,7 +64,6 @@ public class SpawningManager : MonoBehaviour
 
     public void SpawnBuilding(GameObject building)
     {
-        Debug.Log("Spawn Building");
         GameObject newObject;
         newObject = Instantiate(building);
         newObject.transform.position = newObject.transform.position + originTranslate.position;

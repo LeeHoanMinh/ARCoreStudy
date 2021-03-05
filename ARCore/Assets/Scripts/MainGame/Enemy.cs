@@ -8,12 +8,13 @@ public class Enemy : MonoBehaviour
     int health = 5;
     int maxHealth = 5;
     float delayShoot;
+    public float speed;
     GameObject enemyHealthBar;
     Image enemyHealthComponent;
     private void Start()
     {
         enemyHealthBar = Instantiate(ObjectsManager.instance.enemyHeathBar);
-        enemyHealthBar.transform.parent = GameObject.Find("WorldSpaceCanvas").transform;
+        enemyHealthBar.transform.SetParent(GameObject.Find("WorldSpaceCanvas").transform);
         enemyHealthComponent = enemyHealthBar.transform.GetChild(0).GetComponent<Image>();
     }
 
@@ -25,8 +26,10 @@ public class Enemy : MonoBehaviour
     public void BeShot()
     {
         health--;
+        GameObject minus = Instantiate(ObjectsManager.instance.minusHealth, enemyHealthBar.transform);
         if(health == 0)
         {
+            ScoreManager.instance.currentScore++;
             Destroy(enemyHealthBar);
             Destroy(this.gameObject);
         }
@@ -52,9 +55,9 @@ public class Enemy : MonoBehaviour
 
         if (mainBuilding != null)
         {
-            if (Vector3.Distance(this.transform.position, mainBuilding.transform.position) >= 0.1f)
+            if (Vector3.Distance(this.transform.position, mainBuilding.transform.position) >= 0.3f)
             {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, mainBuilding.transform.position, 0.0002f);
+                this.transform.position = Vector3.MoveTowards(this.transform.position, mainBuilding.transform.position, speed);
             }
             else
             {
@@ -63,6 +66,7 @@ public class Enemy : MonoBehaviour
                 {
                     delayShoot = 0;
                     mainBuilding.BeShot();
+                    SimpleSound.instance.PlayEnemyShoot();
                 }
             }
             delayShoot += Time.deltaTime;

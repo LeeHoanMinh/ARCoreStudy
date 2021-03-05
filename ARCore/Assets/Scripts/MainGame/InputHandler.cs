@@ -23,19 +23,28 @@ public class InputHandler : MonoBehaviour
                 if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
                 {
                     //Tap on UI element 
+                    
                 }
                 else
                 {
                     //Tap on screen element
                     Ray ray = currentCamera.ScreenPointToRay(Input.GetTouch(0).position);
-                    RaycastHit hitObject;
-
-                    if (Physics.Raycast(ray, out hitObject))
+                    RaycastHit[] hitObject = new RaycastHit[10];
+                    int hitCnt = Physics.RaycastNonAlloc(ray, hitObject);
+                    
+                    for (int i = 0; i < hitCnt; i++)
                     {
-                        GameObject gameObject = hitObject.transform.gameObject;
-                        if ((gameObject != null) && (gameObject.tag == "Enemy"))
-                            gameObject.GetComponent<Enemy>().BeShot();
-
+                        if (hitObject[i].collider != null)
+                        {
+                            SimpleSound.instance.PlaySound();
+                            GameObject gameObject = hitObject[i].transform.gameObject;
+                            Debug.Log("shot" + gameObject.name);
+                            if ((gameObject != null) && (gameObject.tag == "Enemy"))
+                            {
+                                gameObject.GetComponent<Enemy>().BeShot();
+                                break;
+                            }
+                        }
                     }
                 }
             }
@@ -45,17 +54,23 @@ public class InputHandler : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Ray ray = currentCamera.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hitObject;
-                if (Physics.Raycast(ray, out hitObject))
+                RaycastHit[] hitObject = new RaycastHit[10];
+                int hitCnt = Physics.RaycastNonAlloc(ray, hitObject);
+                for (int i = 0;i < hitCnt;i++)
                 {
-
-                    GameObject gameObject = hitObject.transform.gameObject;
-                    if ((gameObject != null) && (gameObject.tag == "Enemy"))
+                    if(hitObject[i].collider != null)
                     {
-                        Debug.Log("shot");
-                        gameObject.GetComponent<Enemy>().BeShot();
+                        SimpleSound.instance.PlaySound();
+                        GameObject gameObject = hitObject[i].transform.gameObject;
+                        Debug.Log("shot" + gameObject.name);
+                        if ((gameObject != null) && (gameObject.tag == "Enemy"))
+                        {
+                            gameObject.GetComponent<Enemy>().BeShot();
+                            break;
+                        }
                     }
                 }
+     
             }
             if(Input.GetKeyDown(KeyCode.Q))
             {

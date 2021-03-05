@@ -54,6 +54,7 @@ public class Canvas2DManager : MonoBehaviour
  
     void ToggleARPlane()
     {
+        SimpleSound.instance.PlayButton();
         arPlaneManager.enabled = !arPlaneManager.enabled;
         foreach (ARPlane plane in arPlaneManager.trackables)
         {
@@ -70,7 +71,8 @@ public class Canvas2DManager : MonoBehaviour
     }
 
     public void PutOriginalPlane()
-    {   
+    {
+        SimpleSound.instance.PlayButton();
         SystemManager.instance.ActivatePlaneInitialization();
         finishPutPlaneButton.gameObject.SetActive(true);
         putOriginalPlaneButton.gameObject.SetActive(false);
@@ -78,6 +80,7 @@ public class Canvas2DManager : MonoBehaviour
 
     public void PlaceObject()
     {
+        SimpleSound.instance.PlayButton();
         if (SystemManager.instance.SystemState == GameState.PlacePlane)
         {
             Debug.Log(SystemManager.instance.SystemState);
@@ -93,6 +96,7 @@ public class Canvas2DManager : MonoBehaviour
 
     public void FinishPutPlane()
     {
+        SimpleSound.instance.PlayButton();
         SystemManager.instance.FinishPlaneInitialization();
         finishPutPlaneButton.gameObject.SetActive(false);
     }
