@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectsManager : MonoBehaviour
 {
     public static ObjectsManager instance;
+
     public GameObject defaultAnchor;
     public GameObject enemyHeathBar;
     public GameObject ground;
@@ -13,6 +14,7 @@ public class ObjectsManager : MonoBehaviour
     public GameObject enemySpawner;
     public GameObject minusHealth;
     public GameObject ScoreText;
+    public GameObject enemyHealthBarPrefab;
 
     private void Awake()
     {

@@ -5,9 +5,14 @@ using UnityEngine.EventSystems;
 
 public class InputHandler : MonoBehaviour
 {
+    public static InputHandler instance;
 
     Camera currentCamera;
-
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+    }
     void Start()
     {
         currentCamera = ModeManager.instance.GetMainCamera();    
@@ -27,51 +32,13 @@ public class InputHandler : MonoBehaviour
                 }
                 else
                 {
-                    //Tap on screen element
-                    Ray ray = currentCamera.ScreenPointToRay(Input.GetTouch(0).position);
-                    RaycastHit[] hitObject = new RaycastHit[10];
-                    int hitCnt = Physics.RaycastNonAlloc(ray, hitObject);
-                    
-                    for (int i = 0; i < hitCnt; i++)
-                    {
-                        if (hitObject[i].collider != null)
-                        {
-                            SimpleSound.instance.PlaySound();
-                            GameObject gameObject = hitObject[i].transform.gameObject;
-                            Debug.Log("shot" + gameObject.name);
-                            if ((gameObject != null) && (gameObject.tag == "Enemy"))
-                            {
-                                gameObject.GetComponent<Enemy>().BeShot();
-                                break;
-                            }
-                        }
-                    }
+
                 }
             }
         }
         else
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Ray ray = currentCamera.ScreenPointToRay(Input.mousePosition);
-                RaycastHit[] hitObject = new RaycastHit[10];
-                int hitCnt = Physics.RaycastNonAlloc(ray, hitObject);
-                for (int i = 0;i < hitCnt;i++)
-                {
-                    if(hitObject[i].collider != null)
-                    {
-                        SimpleSound.instance.PlaySound();
-                        GameObject gameObject = hitObject[i].transform.gameObject;
-                        Debug.Log("shot" + gameObject.name);
-                        if ((gameObject != null) && (gameObject.tag == "Enemy"))
-                        {
-                            gameObject.GetComponent<Enemy>().BeShot();
-                            break;
-                        }
-                    }
-                }
-     
-            }
+ 
             if(Input.GetKeyDown(KeyCode.Q))
             {
                 Canvas2DManager.instance.PutOriginalPlane();
@@ -83,6 +50,29 @@ public class InputHandler : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Canvas2DManager.instance.PlaceObject();
+            }
+        }
+    }
+
+    public void Shoot()
+    {
+        Ray ray = currentCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+        RaycastHit[] hitObject = new RaycastHit[10];
+        int hitCnt = Physics.RaycastNonAlloc(ray, hitObject);
+        for (int i = 0; i < hitCnt; i++)
+        {
+            if (hitObject[i].collider != null)
+            {
+                SimpleSound.instance.PlaySound();
+                GameObject gameObject = hitObject[i].transform.gameObject;
+
+                if ((gameObject != null) && (gameObject.tag == "Enemy"))
+                {
+                    Debug.Log("Test");
+                    Debug.Log(gameObject.GetComponent<EnemyClass>());
+                    gameObject.GetComponent<EnemyClass>().BeShot(1);
+                    break;
+                }
             }
         }
     }

@@ -23,10 +23,10 @@ public class EnemySpawner : MonoBehaviour
             for (int j = 0;j < thisRound.enemytypes.numberOfEnemy;j++)
             {
                 GameObject newG = Instantiate(thisRound.enemytypes.enemyInstance);
-                newG.GetComponent<Enemy>().EnemySetUp(5 + enemyLV);
+                //newG.GetComponent<Enemy>().EnemySetUp(5 + enemyLV);
                 int position = Random.Range(0, 5);
                 newG.transform.position = spawnPlace[position].position;
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(4f);
                 enemyCnt++;
                 if (enemyCnt == 10)
                 {

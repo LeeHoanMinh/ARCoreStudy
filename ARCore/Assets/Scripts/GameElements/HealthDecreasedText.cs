@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MinusText : MonoBehaviour
+public class HealthDecreasedText : MonoBehaviour
 {
     Text text;
+    void Awake()
+    {
+        text = this.GetComponent<Text>();
+    }
     void Start()
     {
-        this.transform.position += new Vector3(0f, 0.01f, 0f);
-        text = this.GetComponent<Text>();
-        StartCoroutine(Minus());
+        this.transform.position += new Vector3(0f, 0.01f, 0f); 
+        StartCoroutine(DecreaseHealthAnimation());
     }
-    IEnumerator Minus()
+
+    IEnumerator DecreaseHealthAnimation()
     {
         for (int i = 0;i < 20;i++)
         {
@@ -23,6 +27,10 @@ public class MinusText : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
         GameObject.Destroy(this);
+    }
 
+    public void SetDecreasedHealth(int decreasedHealth)
+    {
+        text.text = decreasedHealth.ToString();
     }
 }

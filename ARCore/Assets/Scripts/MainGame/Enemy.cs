@@ -5,12 +5,11 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    int health = 5;
-    int maxHealth = 5;
+   /* int health;
+    int maxHealth;
     float delayShoot;
     public float speed;
-    GameObject enemyHealthBar;
-    Image enemyHealthComponent;
+
     private void Start()
     {
         enemyHealthBar = Instantiate(ObjectsManager.instance.enemyHeathBar);
@@ -72,4 +71,5 @@ public class Enemy : MonoBehaviour
             delayShoot += Time.deltaTime;
         }
     }
+    */
 }

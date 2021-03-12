@@ -38,7 +38,7 @@ public class SystemManager : MonoBehaviour
         IndicatorManager.instance.SetPlacementIndicatorByDefault();
 
         SpawningManager.instance.SpawnBuilding(ObjectsManager.instance.building);
-        mainBuilding.BuildingSetUp(30);
+
 
         
         ScoreManager.instance.ScoreText = Instantiate(ObjectsManager.instance.ScoreText, GameObject.Find("WorldSpaceCanvas").transform).GetComponent<Text>();

@@ -72,6 +72,8 @@ public class Canvas2DManager : MonoBehaviour
 
     public void PutOriginalPlane()
     {
+        if(!ModeManager.instance.InEditorMode())
+            ToggleARPlane();
         SimpleSound.instance.PlayButton();
         SystemManager.instance.ActivatePlaneInitialization();
         finishPutPlaneButton.gameObject.SetActive(true);
@@ -83,7 +85,6 @@ public class Canvas2DManager : MonoBehaviour
         SimpleSound.instance.PlayButton();
         if (SystemManager.instance.SystemState == GameState.PlacePlane)
         {
-            Debug.Log(SystemManager.instance.SystemState);
             SpawningManager.instance.SpawnPlane(SystemManager.instance.currentObjectToSpawn);
         }
         else
@@ -99,5 +100,10 @@ public class Canvas2DManager : MonoBehaviour
         SimpleSound.instance.PlayButton();
         SystemManager.instance.FinishPlaneInitialization();
         finishPutPlaneButton.gameObject.SetActive(false);
+    }
+
+    public void Shoot()
+    {
+        InputHandler.instance.Shoot();
     }
 }

@@ -53,7 +53,7 @@ public class SpawningManager : MonoBehaviour
         }
 
         originTranslate = IndicatorManager.instance.PlacementPose;
-        Debug.Log(originTranslate);
+
         GameObject newObject;
         newObject = Instantiate(plane, originTranslate.position, originTranslate.rotation);
         newObject.transform.localScale = IndicatorManager.instance.PlacementIndicator.GetComponentInChildren<DefaultPlane>().transform.localScale;
@@ -68,8 +68,7 @@ public class SpawningManager : MonoBehaviour
         newObject = Instantiate(building);
         newObject.transform.position = newObject.transform.position + originTranslate.position;
         newObject.transform.rotation = originTranslate.rotation * newObject.transform.rotation;
-        Debug.Log(newObject);
-        Debug.Log(newObject.transform.position);
+
         SystemManager.instance.mainBuilding = newObject.GetComponent<MainBuilding>();
     }
 
