@@ -38,7 +38,7 @@ public class MainBuilding : MonoBehaviour
 
     void UpdateHealthBar()
     {
-        healthBar.UpdateHealthBar(currentHealth, maxHealth);
-        healthBar.transform.position = this.transform.position + new Vector3(0f, 0.15f, 0f);
+        healthBar.UpdateFilledAmount(currentHealth, maxHealth);
+        healthBar.UpdatePosition(this.transform.position, 0.15f);
     }
 }

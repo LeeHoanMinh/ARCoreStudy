@@ -16,11 +16,13 @@ public class EnemyClass: MonoBehaviour
     protected float movingSpeed;
     [SerializeField]
     protected float shootingRange;
+    [SerializeField]
+    protected int expValue;
 
 
 
     GameObject healthBarInstance;
-    HealthBar healthBar;
+    protected HealthBar healthBar;
     float shootDelay;
     protected virtual void Start()
     {
@@ -36,16 +38,22 @@ public class EnemyClass: MonoBehaviour
 
     protected void UpdateHealthBar()
     {
-        healthBar.UpdateHealthBar(currentHealth, maxHealth);
-        healthBarInstance.transform.position = this.transform.position + new Vector3(0f, 0.05f, 0f);
+        healthBar.UpdateFilledAmount(currentHealth, maxHealth);
+        UpdateHealthBarPosition();
+    }
+
+    protected virtual void UpdateHealthBarPosition()
+    {
+        healthBar.UpdatePosition(this.transform.position, 0.05f);
     }
 
     protected void TargetBuilding()
     {
         MainBuilding mainBuilding = SystemManager.instance.mainBuilding;
-
+        
         if (mainBuilding != null)
         {
+            this.transform.LookAt(mainBuilding.transform);
             float distanceWithMainBuilding = Vector3.Distance(this.transform.position, mainBuilding.transform.position);
             if (distanceWithMainBuilding >= shootingRange)
             {
@@ -69,11 +77,12 @@ public class EnemyClass: MonoBehaviour
 
     public void BeShot(int playerDame)
     {
-        currentHealth--;
+        currentHealth -= playerDame;
         healthBar.PopUpHealthDecreaseText(playerDame);
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             ScoreManager.instance.currentScore++;
+            Player.instance.PlusExp(expValue);
             Destroy(healthBarInstance);
             Destroy(this.gameObject);
         }

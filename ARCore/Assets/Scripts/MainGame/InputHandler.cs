@@ -54,26 +54,5 @@ public class InputHandler : MonoBehaviour
         }
     }
 
-    public void Shoot()
-    {
-        Ray ray = currentCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
-        RaycastHit[] hitObject = new RaycastHit[10];
-        int hitCnt = Physics.RaycastNonAlloc(ray, hitObject);
-        for (int i = 0; i < hitCnt; i++)
-        {
-            if (hitObject[i].collider != null)
-            {
-                SimpleSound.instance.PlaySound();
-                GameObject gameObject = hitObject[i].transform.gameObject;
 
-                if ((gameObject != null) && (gameObject.tag == "Enemy"))
-                {
-                    Debug.Log("Test");
-                    Debug.Log(gameObject.GetComponent<EnemyClass>());
-                    gameObject.GetComponent<EnemyClass>().BeShot(1);
-                    break;
-                }
-            }
-        }
-    }
 }

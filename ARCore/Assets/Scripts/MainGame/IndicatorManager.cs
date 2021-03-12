@@ -8,7 +8,7 @@ using UnityEngine.XR.ARSubsystems;
 public class IndicatorManager : MonoBehaviour
 {
     public static IndicatorManager instance;
-    bool isActive = false;
+    public bool isActive = true;
     
     ARSessionOrigin arSessionOrigin;
     Camera currentCamera;
@@ -44,8 +44,12 @@ public class IndicatorManager : MonoBehaviour
 
     private void Update()
     {
-        UpdatePlacementPose();
-        UpdatePlacementIndicator();
+        if (isActive == true)
+        {
+            UpdatePlacementPose();
+            UpdatePlacementIndicator();
+        }
+        else placementIndicator.SetActive(false);
     }
 
     void UpdatePlacementIndicator()

@@ -11,11 +11,11 @@ public class ObjectsManager : MonoBehaviour
     public GameObject ground;
     public GameObject airplane;
     public GameObject building;
-    public GameObject enemySpawner;
+    
     public GameObject minusHealth;
     public GameObject ScoreText;
     public GameObject enemyHealthBarPrefab;
-
+    public GameObject[] enemySpawner;
     private void Awake()
     {
         //Instantiate(objectToSpawn[1]);

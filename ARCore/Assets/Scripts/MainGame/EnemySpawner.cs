@@ -18,25 +18,24 @@ public class EnemySpawner : MonoBehaviour
         {
             EnemySpawnerRound thisRound = enemySpawnerRound[i];
             yield return new WaitForSeconds(thisRound.waitForTheFirstSpawn);
-            int enemyCnt = 0;
-            int enemyLV = 0;
-            for (int j = 0;j < thisRound.enemytypes.numberOfEnemy;j++)
+            foreach (EnemySpawnerRound.EnemyType enemyType in thisRound.enemytypes)
             {
-                GameObject newG = Instantiate(thisRound.enemytypes.enemyInstance);
-                //newG.GetComponent<Enemy>().EnemySetUp(5 + enemyLV);
-                int position = Random.Range(0, 5);
-                newG.transform.position = spawnPlace[position].position;
-                yield return new WaitForSeconds(4f);
-                enemyCnt++;
-                if (enemyCnt == 10)
-                {
-                    yield return new WaitForSeconds(thisRound.waitBetweenEachGroup);
-                    enemyCnt = 0;
-                    enemyLV++;
-                }
 
+                for (int j = 0; j < enemyType.numberOfEnemy; j++)
+                {
+                    GameObject newG = Instantiate(enemyType.enemyInstance);
+                    
+                    int position = Random.Range(0, 5);
+                    newG.transform.position = spawnPlace[position].position;
+                    yield return new WaitForSeconds(thisRound.timeToSpawn);
+  
+                }
+        
+            
             }
+            yield return new WaitForSeconds(thisRound.waitBetweenEachGroup);
         }
+        Destroy(this.gameObject);
         
     }
 }

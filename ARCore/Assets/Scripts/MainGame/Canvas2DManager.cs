@@ -104,6 +104,6 @@ public class Canvas2DManager : MonoBehaviour
 
     public void Shoot()
     {
-        InputHandler.instance.Shoot();
+        Player.instance.Shoot();
     }
 }

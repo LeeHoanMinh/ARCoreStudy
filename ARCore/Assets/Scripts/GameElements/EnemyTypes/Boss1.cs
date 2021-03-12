@@ -19,6 +19,10 @@ public class Boss1 : EnemyClass
         CheckTimeToHealth();
     }
 
+    protected override void UpdateHealthBarPosition()
+    {
+        healthBar.UpdatePosition(this.transform.position, 0.1f);
+    }
 
     void CheckTimeToHealth()
     {

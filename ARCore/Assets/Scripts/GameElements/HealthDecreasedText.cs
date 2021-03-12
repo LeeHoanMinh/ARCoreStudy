@@ -26,7 +26,7 @@ public class HealthDecreasedText : MonoBehaviour
             text.color = color;
             yield return new WaitForSeconds(0.05f);
         }
-        GameObject.Destroy(this);
+        GameObject.Destroy(this.gameObject);
     }
 
     public void SetDecreasedHealth(int decreasedHealth)

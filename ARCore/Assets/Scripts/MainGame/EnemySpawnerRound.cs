@@ -16,6 +16,7 @@ public class EnemySpawnerRound
         public GameObject enemyInstance;
         public float numberOfEnemy;
     }
-    public EnemyType enemytypes;
+    public EnemyType[] enemytypes;
+    public float timeToSpawn;
 
 }
