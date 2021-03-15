@@ -5,8 +5,12 @@ using System;
 using Random = UnityEngine.Random;
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField]
+    int lv;
     public Transform[] spawnPlace;
     public EnemySpawnerRound[] enemySpawnerRound;
+
+    
     public void StartSpawning()
     {
         StartCoroutine(SpawnObjects());
@@ -18,24 +22,42 @@ public class EnemySpawner : MonoBehaviour
         {
             EnemySpawnerRound thisRound = enemySpawnerRound[i];
             yield return new WaitForSeconds(thisRound.waitForTheFirstSpawn);
-            foreach (EnemySpawnerRound.EnemyType enemyType in thisRound.enemytypes)
+            for (int j = 0;j < thisRound.numberOfGroups;j++)
             {
-
-                for (int j = 0; j < enemyType.numberOfEnemy; j++)
+                foreach (GameObject enemyX in thisRound.enemyInstance)
                 {
-                    GameObject newG = Instantiate(enemyType.enemyInstance);
                     
-                    int position = Random.Range(0, 5);
-                    newG.transform.position = spawnPlace[position].position;
-                    yield return new WaitForSeconds(thisRound.timeToSpawn);
-  
+                    List<int> permutationArray= new List<int>(spawnPlace.Length);
+                    RandomArray(ref permutationArray, spawnPlace.Length);
+                   
+                    for (int k = 0; k < Mathf.Min(permutationArray.Count, thisRound.enemyInstance.Length); k++)
+                    {
+                        GameObject newG = Instantiate(enemyX);
+                        newG.transform.position = spawnPlace[permutationArray[k]].position;
+                    }
                 }
-        
-            
+                yield return new WaitForSeconds(thisRound.waitBetweenEachGroup);
             }
-            yield return new WaitForSeconds(thisRound.waitBetweenEachGroup);
+            
         }
+        SystemManager.instance.LevelComplete(lv);
         Destroy(this.gameObject);
         
+    }
+
+    void RandomArray(ref List<int> array,int length)
+    {
+        for (int i = 0;i < length;i++)
+        {
+            array.Add(i);
+        }
+        for (int i = 0;i < 10 * array.Count;i++)
+        {
+            int x = Random.Range(0, array.Count);
+            int y = Random.Range(0, array.Count);
+            int tmp = array[x];
+            array[x] = array[y];
+            array[y] = tmp;
+        }
     }
 }

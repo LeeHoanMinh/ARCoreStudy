@@ -26,6 +26,8 @@ public class EnemyClass: MonoBehaviour
     float shootDelay;
     protected virtual void Start()
     {
+        if (ModeManager.instance.InEditorMode())
+            movingSpeed /= 5f;
         healthBarInstance = Instantiate(ObjectsManager.instance.enemyHealthBarPrefab);
         healthBarInstance.transform.SetParent(GameObject.Find("WorldSpaceCanvas").transform);
         healthBar = healthBarInstance.GetComponent<HealthBar>();

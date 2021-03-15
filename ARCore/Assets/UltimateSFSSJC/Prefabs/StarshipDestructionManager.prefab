@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &158558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 440902}
+  - component: {fileID: 11483480}
+  m_Layer: 0
+  m_Name: StarshipDestructionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &440902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11483480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ada7d780c486e4db9a4722712ea080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CarrierDebrisFSPrefab: {fileID: 126004, guid: 98efc4f2989199d40aae9dc3d68b071c, type: 3}
+  LargeDebrisFSPrefab: {fileID: 126004, guid: eba49699caa43844f9f30bf41c88d7cd, type: 3}
+  MediumDebrisFSPrefab: {fileID: 126004, guid: ae442c49a0f70e941b80a2f0ed5cb0be, type: 3}
+  SmallDebrisFSPrefab: {fileID: 126004, guid: e06de42adb3a51c4698ca2519b9d6ef2, type: 3}
+  CarrierSubExplosionPrefab: {fileID: 174204, guid: 1d0fcb7150342a04097e1a1e1d83ea3c, type: 3}
+  LargeSubExplosionPrefab: {fileID: 192646, guid: ce0e9570eda1c1649915a6112c2a9c09, type: 3}
+  MediumSubExplosionPrefab: {fileID: 151308, guid: 559b7eced1151104ca00d0ba0cd5e890, type: 3}
+  SmallSubExplosionPrefab: {fileID: 151308, guid: 557ea84add0d6e94287f050e02862de5, type: 3}
+  CarrierMainExplosionPrefab: {fileID: 124370, guid: b3f9bc9aee2821b4abd6ac9138cf9735, type: 3}
+  LargeMainExplosionPrefab: {fileID: 121066, guid: a4c6cdb92f3730746a228f7999342563, type: 3}
+  MediumMainExplosionPrefab: {fileID: 151308, guid: 799bca7f153bf204f8eba4e6d8a7fd13, type: 3}
+  SmallMainExplosionPrefab: {fileID: 155290, guid: 2b9d8b30338635942a2d1822c790a061, type: 3}
+  BloodTexture01_Red: {fileID: 2100000, guid: 91126f74bb9d6cf41a4ff99dee6ade6c, type: 2}
+  BloodTexture02_Red: {fileID: 2100000, guid: 8885ced9f188b3649a9ab6fb006bb350, type: 2}
+  BloodTexture03_Red: {fileID: 2100000, guid: dbbd422ee3a99b54388077eafdb2a8c1, type: 2}
+  BloodTexture04_Red: {fileID: 0}
+  BloodStardockTexture01_Red: {fileID: 2100000, guid: 0bca36df3931e2147ba790d133e3c479, type: 2}
+  BloodStarbaseTexture01_Red: {fileID: 2100000, guid: 00ebeefa65936d04fb33edd61b6950c1, type: 2}
+  BloodStarbaseTexture02_Red: {fileID: 2100000, guid: a8da6a99af620d84a995dd90a7359e75, type: 2}
+  BloodTexture01_Gray: {fileID: 2100000, guid: 9a29bcd115674d8468c8917ac9f62a91, type: 2}
+  BloodTexture02_Gray: {fileID: 2100000, guid: b2331d326e2970c459f3a4a4c969e312, type: 2}
+  BloodTexture03_Gray: {fileID: 2100000, guid: 0449a3d43d1c7a0428eac5488bb25616, type: 2}
+  BloodTexture04_Gray: {fileID: 0}
+  BloodStardockTexture01_Gray: {fileID: 2100000, guid: fe50e6551d5932449b7bed48ee923f20, type: 2}
+  BloodStarbaseTexture01_Gray: {fileID: 2100000, guid: d66c9fe75acadc74a90894ebe211da15, type: 2}
+  BloodStarbaseTexture02_Gray: {fileID: 2100000, guid: a361c49bc147e674c9ec123d2df3bd07, type: 2}
+  BloodTexture01_Blue: {fileID: 2100000, guid: 09681ebea28fe044ebf824854086212d, type: 2}
+  BloodTexture02_Blue: {fileID: 2100000, guid: 96fdcf26c3abea145a1172ff296fb5a5, type: 2}
+  BloodTexture03_Blue: {fileID: 2100000, guid: f061e727f529d0e43a975dad956e4bf8, type: 2}
+  BloodTexture04_Blue: {fileID: 0}
+  BloodStardockTexture01_Blue: {fileID: 2100000, guid: 9a565430740c3f143a10a5c4fb4a184e, type: 2}
+  BloodStarbaseTexture01_Blue: {fileID: 2100000, guid: 10dd0a7014162814088b7096564aea52, type: 2}
+  BloodStarbaseTexture02_Blue: {fileID: 2100000, guid: 16f8e691758d9e74b87c1fd3997cc64d, type: 2}
+  BloodTexture01_Green: {fileID: 2100000, guid: d36d792f478525345a220b13da9f56a6, type: 2}
+  BloodTexture02_Green: {fileID: 2100000, guid: cf2b597bbe7461544a38f9468d7d9ef0, type: 2}
+  BloodTexture03_Green: {fileID: 2100000, guid: d7fbf9aae30e5d646af86b33a083e9cf, type: 2}
+  BloodTexture04_Green: {fileID: 0}
+  BloodStardockTexture01_Green: {fileID: 2100000, guid: 5f26c58723d12c1488566c3002d8c862, type: 2}
+  BloodStarbaseTexture01_Green: {fileID: 2100000, guid: a9d3dde68e2d88e4192fb90d712bf7bd, type: 2}
+  BloodStarbaseTexture02_Green: {fileID: 2100000, guid: b9ce0cc575ea87a448b83d09568710ab, type: 2}
+  BloodTexture01_Purple: {fileID: 2100000, guid: 17801b97814cd0e4494510f2db881b27, type: 2}
+  BloodTexture02_Purple: {fileID: 2100000, guid: 7737d5edc43f94040b54b1aa783d3113, type: 2}
+  BloodTexture03_Purple: {fileID: 2100000, guid: 10540b40f543d014995219d0dea75480, type: 2}
+  BloodTexture04_Purple: {fileID: 0}
+  BloodStardockTexture01_Purple: {fileID: 2100000, guid: 69448fc1bacd72d4cb0f3a3a6bdb7fcc, type: 2}
+  BloodStarbaseTexture01_Purple: {fileID: 2100000, guid: 5c2e157bf76885549ab932b825d1a066, type: 2}
+  BloodStarbaseTexture02_Purple: {fileID: 2100000, guid: 912db1261b9acc6429ba64608fc5fe23, type: 2}
+  BloodTexture01_Teal: {fileID: 2100000, guid: 6f2d9b952675c4749b5dd04812a24e51, type: 2}
+  BloodTexture02_Teal: {fileID: 2100000, guid: 303f6847aeb02c646a4c812adb41a9f5, type: 2}
+  BloodTexture03_Teal: {fileID: 2100000, guid: ef4f99442a452204f984ff38d0cfd2aa, type: 2}
+  BloodTexture04_Teal: {fileID: 0}
+  BloodStardockTexture01_Teal: {fileID: 2100000, guid: da6f3367ca8dbf94a87247f0cd90b744, type: 2}
+  BloodStarbaseTexture01_Teal: {fileID: 2100000, guid: 54331f2e0a8ef1d47b2fbe8e2ee06a12, type: 2}
+  BloodStarbaseTexture02_Teal: {fileID: 2100000, guid: 25c2ad79dd4a5cd48992787e88dfed16, type: 2}
+  BloodTexture01_DebrisMaterial: {fileID: 2100000, guid: b68f912a571c99246962a2eb05398ac8, type: 2}
+  BloodTexture02_DebrisMaterial: {fileID: 2100000, guid: 52e63ebafae2caa45a25b639fa86927e, type: 2}
+  BloodTexture03_DebrisMaterial: {fileID: 2100000, guid: c26eeee11c4232543b9f86f1ed64bff4, type: 2}
+  BloodStardock01_DebrisMaterial: {fileID: 2100000, guid: f38672863db06d84ab986ee3df271744, type: 2}
+  BloodStarbase01_DebrisMaterial: {fileID: 2100000, guid: 811c0c23ff3e7f74dafbf7b85ab8cb0f, type: 2}
+  BloodStarbase02_DebrisMaterial: {fileID: 2100000, guid: fb3a90f1b3e2da34f82f06f39bf8e593, type: 2}
+  BloodTexture04_DebrisMaterial: {fileID: 0}

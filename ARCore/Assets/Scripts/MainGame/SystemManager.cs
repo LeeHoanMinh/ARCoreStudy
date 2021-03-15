@@ -11,6 +11,10 @@ public class SystemManager : MonoBehaviour
     public DefaultPlane currentPlane;
     public MainBuilding mainBuilding;
     public EnemySpawner enemySpawner;
+
+
+    bool[] levelIsCompleted = new bool[100];
+
     GameState systemState;
     public GameState SystemState
     {
@@ -51,43 +55,23 @@ public class SystemManager : MonoBehaviour
         StartCoroutine(spawnEnemy());
 
     }
+
+    public void LevelComplete(int index)
+    {
+        levelIsCompleted[index] = true;
+    }
     IEnumerator spawnEnemy()
-{
-        enemySpawner = Instantiate(ObjectsManager.instance.enemySpawner[0]).GetComponent<EnemySpawner>();
-        enemySpawner.transform.position = mainBuilding.transform.position + new Vector3(0.4f, 0.4f, 0.4f);
-        enemySpawner.transform.LookAt(mainBuilding.transform);
-        enemySpawner.StartSpawning();
-        yield return new WaitForSeconds(40f);
-
-        enemySpawner = Instantiate(ObjectsManager.instance.enemySpawner[1]).GetComponent<EnemySpawner>();
-        enemySpawner.transform.position = mainBuilding.transform.position + new Vector3(-0.4f, 0.4f, -0.4f);
-        enemySpawner.transform.LookAt(mainBuilding.transform);
-        enemySpawner.StartSpawning();
-        yield return new WaitForSeconds(40f);
-
-        enemySpawner = Instantiate(ObjectsManager.instance.enemySpawner[2]).GetComponent<EnemySpawner>();
-        enemySpawner.transform.position = mainBuilding.transform.position + new Vector3(0.4f, 0.4f, 0.4f);
-        enemySpawner.transform.LookAt(mainBuilding.transform);
-        enemySpawner.StartSpawning();
-        yield return new WaitForSeconds(50f);
-
-        enemySpawner = Instantiate(ObjectsManager.instance.enemySpawner[3]).GetComponent<EnemySpawner>();
-        enemySpawner.transform.position = mainBuilding.transform.position + new Vector3(-0.4f, 0.4f, 0.4f);
-        enemySpawner.transform.LookAt(mainBuilding.transform);
-        enemySpawner.StartSpawning();
-        yield return new WaitForSeconds(50f);
-
-        enemySpawner = Instantiate(ObjectsManager.instance.enemySpawner[4]).GetComponent<EnemySpawner>();
-        enemySpawner.transform.position = mainBuilding.transform.position + new Vector3(0.4f, 0.4f, 0.4f);
-        enemySpawner.transform.LookAt(mainBuilding.transform);
-        enemySpawner.StartSpawning();
-        yield return new WaitForSeconds(60f);
-
-        enemySpawner = Instantiate(ObjectsManager.instance.enemySpawner[5]).GetComponent<EnemySpawner>();
-        enemySpawner.transform.position = mainBuilding.transform.position + new Vector3(-0.4f, 0.4f, -0.4f);
-        enemySpawner.transform.LookAt(mainBuilding.transform);
-        enemySpawner.StartSpawning();
-        yield return new WaitForSeconds(40f);
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            enemySpawner = Instantiate(ObjectsManager.instance.enemySpawner[i]).GetComponent<EnemySpawner>();
+            enemySpawner.transform.position = mainBuilding.transform.position + new Vector3(0.4f, 0.4f, 0.4f);
+            enemySpawner.transform.LookAt(mainBuilding.transform);
+            enemySpawner.StartSpawning();
+            while (levelIsCompleted[i] == false)
+                yield return new WaitForSeconds(2);
+        }
+  
 
         yield return null;
     }

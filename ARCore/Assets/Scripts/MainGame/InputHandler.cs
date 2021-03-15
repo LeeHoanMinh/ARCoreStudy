@@ -28,7 +28,7 @@ public class InputHandler : MonoBehaviour
                 if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
                 {
                     //Tap on UI element 
-                    
+
                 }
                 else
                 {
@@ -38,8 +38,8 @@ public class InputHandler : MonoBehaviour
         }
         else
         {
- 
-            if(Input.GetKeyDown(KeyCode.Q))
+
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 Canvas2DManager.instance.PutOriginalPlane();
             }
@@ -50,6 +50,10 @@ public class InputHandler : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Canvas2DManager.instance.PlaceObject();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Canvas2DManager.instance.Shoot();
             }
         }
     }

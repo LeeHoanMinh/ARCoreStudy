@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 4069321995418482058}
   - component: {fileID: 4069321995418482057}
   m_Layer: 0
-  m_Name: LV2
+  m_Name: LV3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f93d0b4865282141b1eddf9459aadfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lv: 3
   spawnPlace:
   - {fileID: 4069321995008992650}
   - {fileID: 4069321994787111177}
@@ -236,36 +237,18 @@ MonoBehaviour:
   - {fileID: 4069321993970487532}
   - {fileID: 4069321995260942373}
   enemySpawnerRound:
-  - waitForTheFirstSpawn: 6
-    waitBetweenEachGroup: 10
-    enemytypes:
-    - enemyInstance: {fileID: 6370121412068255484, guid: c57e321b2d9c7d14497fca4b3e17e09d, type: 3}
-      numberOfEnemy: 4
-    timeToSpawn: 0
-  - waitForTheFirstSpawn: 6
-    waitBetweenEachGroup: 10
-    enemytypes:
-    - enemyInstance: {fileID: 6370121412068255484, guid: c57e321b2d9c7d14497fca4b3e17e09d, type: 3}
-      numberOfEnemy: 4
-    timeToSpawn: 0
-  - waitForTheFirstSpawn: 6
-    waitBetweenEachGroup: 10
-    enemytypes:
-    - enemyInstance: {fileID: 6370121412068255484, guid: c57e321b2d9c7d14497fca4b3e17e09d, type: 3}
-      numberOfEnemy: 4
-    timeToSpawn: 0
-  - waitForTheFirstSpawn: 6
-    waitBetweenEachGroup: 10
-    enemytypes:
-    - enemyInstance: {fileID: 6370121412068255484, guid: c57e321b2d9c7d14497fca4b3e17e09d, type: 3}
-      numberOfEnemy: 4
-    timeToSpawn: 0
-  - waitForTheFirstSpawn: 6
-    waitBetweenEachGroup: 10
-    enemytypes:
-    - enemyInstance: {fileID: 6370121412068255484, guid: c57e321b2d9c7d14497fca4b3e17e09d, type: 3}
-      numberOfEnemy: 4
-    timeToSpawn: 0
+  - waitForTheFirstSpawn: 7
+    numberOfGroups: 0
+    waitBetweenEachGroup: 30
+    enemyInstance: []
+  - waitForTheFirstSpawn: 7
+    numberOfGroups: 0
+    waitBetweenEachGroup: 30
+    enemyInstance: []
+  - waitForTheFirstSpawn: 7
+    numberOfGroups: 0
+    waitBetweenEachGroup: 30
+    enemyInstance: []
 --- !u!1 &4069321995433960402
 GameObject:
   m_ObjectHideFlags: 0

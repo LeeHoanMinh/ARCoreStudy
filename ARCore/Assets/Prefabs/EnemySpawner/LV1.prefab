@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f93d0b4865282141b1eddf9459aadfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lv: 1
   spawnPlace:
   - {fileID: 4069321995008992650}
   - {fileID: 4069321994787111177}
@@ -236,12 +237,10 @@ MonoBehaviour:
   - {fileID: 4069321993970487532}
   - {fileID: 4069321995260942373}
   enemySpawnerRound:
-  - waitForTheFirstSpawn: 4
-    waitBetweenEachGroup: 0
-    enemytypes:
-    - enemyInstance: {fileID: 6370121412068255484, guid: c57e321b2d9c7d14497fca4b3e17e09d, type: 3}
-      numberOfEnemy: 6
-    timeToSpawn: 3
+  - waitForTheFirstSpawn: 6
+    numberOfGroups: 0
+    waitBetweenEachGroup: 10
+    enemyInstance: []
 --- !u!1 &4069321995433960402
 GameObject:
   m_ObjectHideFlags: 0
