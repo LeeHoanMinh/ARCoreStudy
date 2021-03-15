@@ -16,6 +16,7 @@ public class ObjectsManager : MonoBehaviour
     public GameObject ScoreText;
     public GameObject enemyHealthBarPrefab;
     public GameObject[] enemySpawner;
+    public GameObject projectile;
     private void Awake()
     {
         //Instantiate(objectToSpawn[1]);

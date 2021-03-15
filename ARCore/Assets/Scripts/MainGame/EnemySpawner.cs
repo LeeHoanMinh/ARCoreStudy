@@ -24,17 +24,14 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(thisRound.waitForTheFirstSpawn);
             for (int j = 0;j < thisRound.numberOfGroups;j++)
             {
+                List<int> permutationArray = new List<int>(spawnPlace.Length);
+                RandomArray(ref permutationArray, spawnPlace.Length);
+                int cnt = 0;
                 foreach (GameObject enemyX in thisRound.enemyInstance)
                 {
-                    
-                    List<int> permutationArray= new List<int>(spawnPlace.Length);
-                    RandomArray(ref permutationArray, spawnPlace.Length);
-                   
-                    for (int k = 0; k < Mathf.Min(permutationArray.Count, thisRound.enemyInstance.Length); k++)
-                    {
-                        GameObject newG = Instantiate(enemyX);
-                        newG.transform.position = spawnPlace[permutationArray[k]].position;
-                    }
+                    GameObject newG = Instantiate(enemyX);
+                    newG.transform.position = spawnPlace[permutationArray[cnt]].position;
+                    ++cnt;
                 }
                 yield return new WaitForSeconds(thisRound.waitBetweenEachGroup);
             }

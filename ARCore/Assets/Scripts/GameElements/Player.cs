@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using SciFiArsenal;
 public class Player : MonoBehaviour
 {
     public static Player instance;
@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
     int exp;
     Camera currentCamera;
     float timeValueToShoot;
+
+
+    [SerializeField]
+    float bulletSpeed;
 
     private void Awake()
     {
@@ -58,7 +62,7 @@ public class Player : MonoBehaviour
             Debug.Log("Level up: " + (level + 1).ToString());
             level++;
             dame += LevelManager.instance.levels[level].damePlus;
-            shootingSpeed += LevelManager.instance.levels[level].speedPlus;
+            shootingSpeed -= LevelManager.instance.levels[level].speedPlus;
         }
     }
 
@@ -71,18 +75,43 @@ public class Player : MonoBehaviour
         Ray ray = currentCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
         RaycastHit[] hitObject = new RaycastHit[10];
         int hitCnt = Physics.RaycastNonAlloc(ray, hitObject);
+
+
+
+
+
+
         for (int i = 0; i < hitCnt; i++)
         {
             if (hitObject[i].collider != null)
             {
                 SimpleSound.instance.PlaySound();
                 GameObject gameObject = hitObject[i].transform.gameObject;
+                for (int t = 0; t < 6; t++)
+                {
+                    if(gameObject.transform.parent != null)
+                        gameObject = gameObject.transform.parent.gameObject;
+                }
 
                 if ((gameObject != null) && (gameObject.tag == "Enemy"))
                 {
                     if (timeValueToShoot > shootingSpeed)
                     {
-                        gameObject.transform.parent.GetComponent<EnemyClass>().BeShot(dame);
+
+                        //shoot
+
+                        if (hitCnt > 0)
+                        {
+                            Debug.Log(hitObject[0].transform.gameObject);
+                            GameObject projectile = Instantiate(ObjectsManager.instance.projectile, currentCamera.transform.position, Quaternion.identity) as GameObject;
+                            projectile.transform.LookAt(hitObject[0].point);
+                            projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * bulletSpeed);
+                            projectile.GetComponent<SciFiProjectileScript>().impactNormal = hitObject[0].normal;
+                        }
+
+                        //shoot
+
+                        gameObject.GetComponent<EnemyClass>().BeShot(dame);
                         timeValueToShoot = 0f;
                     }
                     break;
@@ -90,4 +119,7 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+
+
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SciFiArsenal;
 
 public class EnemyClass: MonoBehaviour
 {
@@ -69,6 +70,7 @@ public class EnemyClass: MonoBehaviour
                     //should be fixed
                     mainBuilding.BeShot(dame);
                     SimpleSound.instance.PlayEnemyShoot();
+                    ShootAnimation();
                     //here
                     
                 }
@@ -77,6 +79,14 @@ public class EnemyClass: MonoBehaviour
         }
     }
 
+
+    void ShootAnimation()
+    {
+        GameObject projectile = Instantiate(ObjectsManager.instance.projectile, this.transform.position, Quaternion.identity) as GameObject;
+        projectile.transform.LookAt(SystemManager.instance.mainBuilding.transform);
+        projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * 10f);
+       // projectile.GetComponent<SciFiProjectileScript>().impactNormal = hitObject[0].normal;
+    }
     public void BeShot(int playerDame)
     {
         currentHealth -= playerDame;

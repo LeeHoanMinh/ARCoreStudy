@@ -408,12 +408,12 @@ MonoBehaviour:
   ScoreText: {fileID: 6513245455562204456, guid: c11dfd3b211e0c548a28f9c9234f4d44, type: 3}
   enemyHealthBarPrefab: {fileID: 1379237780734541433, guid: b8f7e214714a27b4386324068b195379, type: 3}
   enemySpawner:
-  - {fileID: 4069321995418482056, guid: 193b063465f27de4eaadd8599e9ec308, type: 3}
-  - {fileID: 4069321995418482056, guid: a79de9d34a8593d468690d1a58b94ee6, type: 3}
-  - {fileID: 4069321995418482056, guid: d47617afd0a3bf8428abbe4aec612215, type: 3}
-  - {fileID: 4069321995418482056, guid: c2f2833456c72bc44b0a1c88e6e07609, type: 3}
-  - {fileID: 4069321995418482056, guid: 50baf19f29287b6499cc5ac1377a498f, type: 3}
-  - {fileID: 4069321995418482056, guid: 86c0a66b91ab1324a984d014e90f2591, type: 3}
+  - {fileID: 4673277807978748251, guid: 0a06715701fe9114f870f6d799c5043b, type: 3}
+  - {fileID: 6957430141612812197, guid: a893ce303d2deca4c85266293fe734bc, type: 3}
+  - {fileID: 6957430141612812197, guid: d39b2e0ece41250449ad27c7d2545618, type: 3}
+  - {fileID: 6957430141612812197, guid: 786c65004f9918544b56ad4c77ac5b53, type: 3}
+  - {fileID: 6957430141612812197, guid: a58ba180df0dd04429d1b4a60f0b5e06, type: 3}
+  projectile: {fileID: 167938, guid: 68d252c56f458f048be104f85316581f, type: 3}
 --- !u!4 &286266799
 Transform:
   m_ObjectHideFlags: 0
@@ -1203,7 +1203,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &753308273
@@ -1556,7 +1556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyboardSpeed: 3
-  mouseSpeed: 80
+  mouseSpeed: 200
 --- !u!81 &957072667
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1775,9 +1775,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   dame: 3
-  shootingSpeed: 0.3
+  shootingSpeed: 0.5
   expBar: {fileID: 390622331}
   lvText: {fileID: 1568655600}
+  bulletSpeed: 1000
 --- !u!4 &1106441528
 Transform:
   m_ObjectHideFlags: 0
@@ -2851,7 +2852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 41.89337, y: -33.31598}
+  m_AnchoredPosition: {x: 41.893433, y: -33.31598}
   m_SizeDelta: {x: 81.7867, y: 70.632}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1594481026
@@ -3048,28 +3049,28 @@ MonoBehaviour:
     speedPlus: 0
   - expNeed: 5
     damePlus: 1
-    speedPlus: 0.1
+    speedPlus: 0.05
   - expNeed: 10
     damePlus: 1
-    speedPlus: 0.1
+    speedPlus: 0.05
   - expNeed: 20
     damePlus: 1
-    speedPlus: 0.1
+    speedPlus: 0.02
   - expNeed: 40
     damePlus: 1
-    speedPlus: 0.05
+    speedPlus: 0.02
   - expNeed: 100
     damePlus: 2
-    speedPlus: 0.02
+    speedPlus: 0.01
   - expNeed: 300
     damePlus: 3
-    speedPlus: 0.02
+    speedPlus: 0.01
   - expNeed: 900
     damePlus: 10
-    speedPlus: 0.05
+    speedPlus: 0.01
   - expNeed: 5000
     damePlus: 15
-    speedPlus: 0.05
+    speedPlus: 0.01
   - expNeed: 5000000
     damePlus: 0
     speedPlus: 0

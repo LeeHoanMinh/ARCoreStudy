@@ -9,9 +9,10 @@ public class SciFiProjectileScript : MonoBehaviour
     public GameObject projectileParticle;
     public GameObject muzzleParticle;
     public GameObject[] trailParticles;
+    float timercnt = 0;
     [HideInInspector]
     public Vector3 impactNormal; //Used to rotate impactparticle.
-
+        bool hitBuilding = false;
     private bool hasCollided = false;
 
     void Start()
@@ -28,7 +29,9 @@ public class SciFiProjectileScript : MonoBehaviour
 
     void OnCollisionEnter(Collision hit)
     {
-        if (!hasCollided)
+    
+
+        if (!hasCollided) 
         {
             hasCollided = true;
             impactParticle = Instantiate(impactParticle, transform.position, Quaternion.FromToRotation(Vector3.up, impactNormal)) as GameObject;
@@ -63,5 +66,14 @@ public class SciFiProjectileScript : MonoBehaviour
             }
         }
     }
-}
+
+    private void Update()
+    {
+            timercnt += Time.deltaTime;
+            if(timercnt >= 4f)
+            {
+                Destroy(this.gameObject);
+            }
+    }
+    }
 }

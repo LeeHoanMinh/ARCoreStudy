@@ -56,8 +56,8 @@ public class SpawningManager : MonoBehaviour
 
         GameObject newObject;
         newObject = Instantiate(plane, originTranslate.position, originTranslate.rotation);
-        newObject.transform.localScale = IndicatorManager.instance.PlacementIndicator.GetComponentInChildren<DefaultPlane>().transform.localScale;
-
+        //newObject.transform.localScale = IndicatorManager.instance.PlacementIndicator.GetComponentInChildren<DefaultPlane>().transform.localScale;
+        newObject.transform.position += new Vector3(0f, 0.002f, 0f);
         SystemManager.instance.currentPlane = newObject.GetComponent<DefaultPlane>();
         
     }

@@ -62,10 +62,15 @@ public class SystemManager : MonoBehaviour
     }
     IEnumerator spawnEnemy()
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 5; i++)
         {
             enemySpawner = Instantiate(ObjectsManager.instance.enemySpawner[i]).GetComponent<EnemySpawner>();
-            enemySpawner.transform.position = mainBuilding.transform.position + new Vector3(0.4f, 0.4f, 0.4f);
+            int xPos = 0;
+            if (i % 2 == 0)
+                xPos = -1;
+            else xPos = 1;
+            
+            enemySpawner.transform.position = mainBuilding.transform.position + new Vector3(xPos * 0.4f, 0.4f, 0.4f);
             enemySpawner.transform.LookAt(mainBuilding.transform);
             enemySpawner.StartSpawning();
             while (levelIsCompleted[i] == false)

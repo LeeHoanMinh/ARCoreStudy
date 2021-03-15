@@ -5,6 +5,7 @@ namespace SciFiArsenal
 {
 public class SciFiLoadSceneOnClick : MonoBehaviour
 {
+    
     public void LoadSceneSciFiProjectiles()  {
 		SceneManager.LoadScene ("scifi_projectiles");
 	}
@@ -53,5 +54,6 @@ public class SciFiLoadSceneOnClick : MonoBehaviour
 	public void LoadSceneSciFiFire(){
         SceneManager.LoadScene("scifi_fire");
     }
+    
 }
 }

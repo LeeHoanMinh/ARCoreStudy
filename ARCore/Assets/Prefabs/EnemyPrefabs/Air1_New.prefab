@@ -49,7 +49,7 @@ MonoBehaviour:
   dame: 1
   shootingSpeed: 3
   movingSpeed: 0.002
-  shootingRange: 0.3
+  shootingRange: 0.2
   expValue: 1
 --- !u!1001 &3403064780079122246
 PrefabInstance:
@@ -64,7 +64,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 170342, guid: 837d19e29d1e5e64fb47770f7d562387, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 460920, guid: 837d19e29d1e5e64fb47770f7d562387, type: 3}
       propertyPath: m_RootOrder
@@ -123,6 +123,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11479372, guid: 837d19e29d1e5e64fb47770f7d562387, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11480472, guid: 837d19e29d1e5e64fb47770f7d562387, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
