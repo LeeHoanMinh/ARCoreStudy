@@ -51,8 +51,8 @@ public class Player : MonoBehaviour
         current -= LevelManager.instance.levels[level].expNeed;
         max -= LevelManager.instance.levels[level].expNeed;
         
-        expBar.UpdateFilledAmount(current,max);
-        lvText.text = "Level " + (level + 1).ToString();
+       // expBar.UpdateFilledAmount(current,max);
+       // lvText.text = "Level " + (level + 1).ToString();
     }
     void CheckLevelUp()
     {
@@ -78,7 +78,15 @@ public class Player : MonoBehaviour
 
 
 
+   
+            GameObject projectile = Instantiate(ObjectsManager.instance.playerProjectile, currentCamera.transform.position, Quaternion.identity) as GameObject;
+            
+            projectile.transform.LookAt(hitObject[0].point);
 
+            //projectile.transform.rotation.SetLookRotation(ray.direction);
+            projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * bulletSpeed);
+            projectile.GetComponent<MyBullets>().impactNormal = hitObject[0].normal;
+        
 
 
         for (int i = 0; i < hitCnt; i++)
@@ -100,14 +108,9 @@ public class Player : MonoBehaviour
 
                         //shoot
 
-                        if (hitCnt > 0)
-                        {
-                            Debug.Log(hitObject[0].transform.gameObject);
-                            GameObject projectile = Instantiate(ObjectsManager.instance.projectile, currentCamera.transform.position, Quaternion.identity) as GameObject;
-                            projectile.transform.LookAt(hitObject[0].point);
-                            projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * bulletSpeed);
-                            projectile.GetComponent<SciFiProjectileScript>().impactNormal = hitObject[0].normal;
-                        }
+            
+                    
+                        
 
                         //shoot
 

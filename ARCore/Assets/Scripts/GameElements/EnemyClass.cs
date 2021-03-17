@@ -82,7 +82,7 @@ public class EnemyClass: MonoBehaviour
 
     void ShootAnimation()
     {
-        GameObject projectile = Instantiate(ObjectsManager.instance.projectile, this.transform.position, Quaternion.identity) as GameObject;
+        GameObject projectile = Instantiate(ObjectsManager.instance.enemyProjectile, this.transform.position, Quaternion.identity) as GameObject;
         projectile.transform.LookAt(SystemManager.instance.mainBuilding.transform);
         projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * 10f);
        // projectile.GetComponent<SciFiProjectileScript>().impactNormal = hitObject[0].normal;
@@ -93,6 +93,7 @@ public class EnemyClass: MonoBehaviour
         healthBar.PopUpHealthDecreaseText(playerDame);
         if (currentHealth <= 0)
         {
+            Instantiate(ObjectsManager.instance.explosion,this.transform.position,Quaternion.identity);
             ScoreManager.instance.currentScore++;
             Player.instance.PlusExp(expValue);
             Destroy(healthBarInstance);

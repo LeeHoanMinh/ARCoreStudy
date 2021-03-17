@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9577440}
   - component: {fileID: 22542478}
   - component: {fileID: 11454200}
+  - component: {fileID: 9217172342083185702}
   m_Layer: 0
   m_Name: infoTxt
   m_TagString: Untagged
@@ -112,6 +113,30 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: TEMPLATE
+--- !u!114 &9217172342083185702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573961e380f210b4d9d02153ca5ffa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectRef: {fileID: 102576}
+  timeAppear: 0.25
+  timeDisappear: 0.75
+  recycling: 0
+  sortID: 2
+  animator: {fileID: 9577440}
+  animClips:
+  - {fileID: 7400000, guid: 0119420d0ff0cde4f9916081d636f3d7, type: 2}
+  - {fileID: 7400000, guid: 2c590dd9e3e79ad4591bd37753b5e7f4, type: 2}
+  - {fileID: 7400000, guid: 110d61bb4d824ce4ea5af88fd4c9bf9f, type: 2}
+  currentState: 3
+  isNested_IAM: 0
 --- !u!1 &108168
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 497470}
   - component: {fileID: 9540664}
+  - component: {fileID: -8360012917553376389}
   m_Layer: 0
   m_Name: sphere (1)
   m_TagString: Untagged
@@ -163,6 +189,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-8360012917553376389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573961e380f210b4d9d02153ca5ffa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectRef: {fileID: 108168}
+  timeAppear: 1
+  timeDisappear: 0
+  recycling: 0
+  sortID: 8
+  animator: {fileID: 9540664}
+  animClips:
+  - {fileID: 7400000, guid: 50103650ee6b62b429bc0ed6e6213886, type: 2}
+  - {fileID: 7400000, guid: f5027b1d96b300545bb880306dcbbc07, type: 2}
+  - {fileID: 7400000, guid: 17358620c7f5e924385f0401c8c1fa33, type: 2}
+  currentState: 3
+  isNested_IAM: 0
 --- !u!1 &120266
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +225,7 @@ GameObject:
   - component: {fileID: 22286040}
   - component: {fileID: 11406820}
   - component: {fileID: 9510284}
+  - component: {fileID: 1393116513765254989}
   m_Layer: 0
   m_Name: circle (1)
   m_TagString: Untagged
@@ -258,6 +309,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1393116513765254989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573961e380f210b4d9d02153ca5ffa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectRef: {fileID: 120266}
+  timeAppear: 0.75
+  timeDisappear: 0.25
+  recycling: 0
+  sortID: 6
+  animator: {fileID: 9510284}
+  animClips:
+  - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
+  - {fileID: 7400000, guid: 7613f8ab712d4544bbf8c7d068135b5c, type: 2}
+  - {fileID: 7400000, guid: dab268c5bfd256e43bcb2b3b11f0e034, type: 2}
+  currentState: 3
+  isNested_IAM: 0
 --- !u!1 &125790
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 445732}
   - component: {fileID: 9568094}
+  - component: {fileID: 4187744635512937390}
   m_Layer: 0
   m_Name: sphere
   m_TagString: Untagged
@@ -309,6 +385,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4187744635512937390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573961e380f210b4d9d02153ca5ffa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectRef: {fileID: 125790}
+  timeAppear: 0.87
+  timeDisappear: 0.13
+  recycling: 0
+  sortID: 7
+  animator: {fileID: 9568094}
+  animClips:
+  - {fileID: 7400000, guid: 50103650ee6b62b429bc0ed6e6213886, type: 2}
+  - {fileID: 7400000, guid: f5027b1d96b300545bb880306dcbbc07, type: 2}
+  - {fileID: 7400000, guid: 17358620c7f5e924385f0401c8c1fa33, type: 2}
+  currentState: 3
+  isNested_IAM: 0
 --- !u!1 &135854
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +584,7 @@ GameObject:
   - component: {fileID: 11435948}
   - component: {fileID: 9568166}
   - component: {fileID: 22504990}
+  - component: {fileID: -7794643713712762324}
   m_Layer: 0
   m_Name: border
   m_TagString: Untagged
@@ -579,6 +680,29 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-7794643713712762324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573961e380f210b4d9d02153ca5ffa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectRef: {fileID: 152472}
+  timeAppear: 0.12
+  timeDisappear: 0.88
+  recycling: 0
+  sortID: 1
+  animator: {fileID: 9568166}
+  animClips:
+  - {fileID: 7400000, guid: 695b42840dbe73b4f956c1d91931ab2e, type: 2}
+  - {fileID: 7400000, guid: 3b9b41a3d6df8104c8cd2ad6117a4b17, type: 2}
+  currentState: 3
+  isNested_IAM: 0
 --- !u!1 &154456
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +794,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 5
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &11495876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,15 +825,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementsList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2557490505023513472}
+  - {fileID: -7794643713712762324}
+  - {fileID: 9217172342083185702}
+  - {fileID: 1253702130462355524}
+  - {fileID: 8157726158225217080}
+  - {fileID: -1725977519633587376}
+  - {fileID: 1393116513765254989}
+  - {fileID: 4187744635512937390}
+  - {fileID: -8360012917553376389}
   autoStart: 1
   invertDelays: 1
   cloneDelays: 0
@@ -741,6 +865,7 @@ GameObject:
   - component: {fileID: 11433154}
   - component: {fileID: 9503968}
   - component: {fileID: 22578474}
+  - component: {fileID: 2557490505023513472}
   m_Layer: 0
   m_Name: frame
   m_TagString: Untagged
@@ -836,6 +961,29 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2557490505023513472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573961e380f210b4d9d02153ca5ffa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectRef: {fileID: 169332}
+  timeAppear: 0
+  timeDisappear: 1
+  recycling: 0
+  sortID: 0
+  animator: {fileID: 9503968}
+  animClips:
+  - {fileID: 7400000, guid: baf288b3c6c5b544897e0acbeaa32963, type: 2}
+  - {fileID: 7400000, guid: 334c2b59a93948d4683f4d03925fe1f9, type: 2}
+  currentState: 3
+  isNested_IAM: 0
 --- !u!1 &169992
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +996,7 @@ GameObject:
   - component: {fileID: 22276438}
   - component: {fileID: 11427966}
   - component: {fileID: 9577816}
+  - component: {fileID: 1253702130462355524}
   m_Layer: 0
   m_Name: circle
   m_TagString: Untagged
@@ -931,6 +1080,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1253702130462355524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573961e380f210b4d9d02153ca5ffa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectRef: {fileID: 169992}
+  timeAppear: 0.37
+  timeDisappear: 0.63
+  recycling: 0
+  sortID: 3
+  animator: {fileID: 9577816}
+  animClips:
+  - {fileID: 7400000, guid: 1c43ad69c324ed842a02d61b08cecdbc, type: 2}
+  - {fileID: 7400000, guid: 7613f8ab712d4544bbf8c7d068135b5c, type: 2}
+  - {fileID: 7400000, guid: dab268c5bfd256e43bcb2b3b11f0e034, type: 2}
+  currentState: 3
+  isNested_IAM: 0
 --- !u!1 &176736
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,6 +1117,7 @@ GameObject:
   - component: {fileID: 9544134}
   - component: {fileID: 22508226}
   - component: {fileID: 11403694}
+  - component: {fileID: -1725977519633587376}
   m_Layer: 0
   m_Name: infoTxt
   m_TagString: Untagged
@@ -1044,6 +1218,30 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '3D Elements : You can change their scale, but be sure to put them into
     a container'
+--- !u!114 &-1725977519633587376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573961e380f210b4d9d02153ca5ffa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectRef: {fileID: 176736}
+  timeAppear: 0.62
+  timeDisappear: 0.38
+  recycling: 0
+  sortID: 5
+  animator: {fileID: 9544134}
+  animClips:
+  - {fileID: 7400000, guid: 0119420d0ff0cde4f9916081d636f3d7, type: 2}
+  - {fileID: 7400000, guid: 2c590dd9e3e79ad4591bd37753b5e7f4, type: 2}
+  - {fileID: 7400000, guid: 110d61bb4d824ce4ea5af88fd4c9bf9f, type: 2}
+  currentState: 3
+  isNested_IAM: 0
 --- !u!1 &196316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,6 +1255,7 @@ GameObject:
   - component: {fileID: 9517646}
   - component: {fileID: 22509770}
   - component: {fileID: 11476314}
+  - component: {fileID: 8157726158225217080}
   m_Layer: 0
   m_Name: infoTxt
   m_TagString: Untagged
@@ -1156,3 +1355,27 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Sprites : Never change scale, only width and height'
+--- !u!114 &8157726158225217080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573961e380f210b4d9d02153ca5ffa5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectRef: {fileID: 196316}
+  timeAppear: 0.5
+  timeDisappear: 0.5
+  recycling: 0
+  sortID: 4
+  animator: {fileID: 9517646}
+  animClips:
+  - {fileID: 7400000, guid: 0119420d0ff0cde4f9916081d636f3d7, type: 2}
+  - {fileID: 7400000, guid: 2c590dd9e3e79ad4591bd37753b5e7f4, type: 2}
+  - {fileID: 7400000, guid: 110d61bb4d824ce4ea5af88fd4c9bf9f, type: 2}
+  currentState: 3
+  isNested_IAM: 0

@@ -11,7 +11,7 @@ public class SystemManager : MonoBehaviour
     public DefaultPlane currentPlane;
     public MainBuilding mainBuilding;
     public EnemySpawner enemySpawner;
-
+    public GameObject center;
 
     bool[] levelIsCompleted = new bool[100];
 
