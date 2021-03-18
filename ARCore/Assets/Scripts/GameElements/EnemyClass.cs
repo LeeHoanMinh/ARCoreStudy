@@ -85,6 +85,7 @@ public class EnemyClass: MonoBehaviour
         GameObject projectile = Instantiate(ObjectsManager.instance.enemyProjectile, this.transform.position, Quaternion.identity) as GameObject;
         projectile.transform.LookAt(SystemManager.instance.mainBuilding.transform);
         projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * 10f);
+        projectile.GetComponent<MyBullets>().dame = dame;
        // projectile.GetComponent<SciFiProjectileScript>().impactNormal = hitObject[0].normal;
     }
     public void BeShot(int playerDame)

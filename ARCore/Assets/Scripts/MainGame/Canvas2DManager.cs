@@ -22,6 +22,8 @@ public class Canvas2DManager : MonoBehaviour
     [SerializeField]
     Button finishPutPlaneButton;
 
+    public GameObject LoseBoard;
+
     private void Awake()
     {
         if (instance == null)

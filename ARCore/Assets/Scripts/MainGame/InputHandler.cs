@@ -74,7 +74,7 @@ public class InputHandler : MonoBehaviour
             {
                 if (hitObject[i].collider != null)
                 {
-                    SimpleSound.instance.PlaySound();
+          
                     GameObject gameObject = hitObject[i].transform.gameObject;
                     for (int t = 0; t < 6; t++)
                     {

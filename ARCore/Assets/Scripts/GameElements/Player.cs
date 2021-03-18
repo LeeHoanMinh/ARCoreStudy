@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using SciFiArsenal;
+using System;
+using TMPro;
 public class Player : MonoBehaviour
 {
     public static Player instance;
@@ -17,7 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     HealthBar expBar;
     [SerializeField]
-    Text lvText;
+    TextMeshProUGUI lvText;
 
     int exp;
     Camera currentCamera;
@@ -51,8 +53,8 @@ public class Player : MonoBehaviour
         current -= LevelManager.instance.levels[level].expNeed;
         max -= LevelManager.instance.levels[level].expNeed;
         
-       // expBar.UpdateFilledAmount(current,max);
-       // lvText.text = "Level " + (level + 1).ToString();
+        expBar.UpdateFilledAmount(current,max);
+        lvText.text = "Level " + (level + 1).ToString();
     }
     void CheckLevelUp()
     {
@@ -72,55 +74,27 @@ public class Player : MonoBehaviour
     }
     public void Shoot()
     {
-        Ray ray = currentCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
-        RaycastHit[] hitObject = new RaycastHit[10];
-        int hitCnt = Physics.RaycastNonAlloc(ray, hitObject);
+        if (timeValueToShoot > shootingSpeed)
+        {
+            Ray ray = currentCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+            RaycastHit[] hitObject = new RaycastHit[10];
+            int hitCnt = Physics.RaycastNonAlloc(ray, hitObject);
 
 
 
-   
+
             GameObject projectile = Instantiate(ObjectsManager.instance.playerProjectile, currentCamera.transform.position, Quaternion.identity) as GameObject;
-            
-            projectile.transform.LookAt(hitObject[0].point);
 
-            //projectile.transform.rotation.SetLookRotation(ray.direction);
+            //projectile.transform.LookAt(hitObject[0].point);
+            projectile.transform.rotation = Quaternion.LookRotation(ray.direction);
             projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * bulletSpeed);
             projectile.GetComponent<MyBullets>().impactNormal = hitObject[0].normal;
-        
-
-
-        for (int i = 0; i < hitCnt; i++)
-        {
-            if (hitObject[i].collider != null)
-            {
-                SimpleSound.instance.PlaySound();
-                GameObject gameObject = hitObject[i].transform.gameObject;
-                for (int t = 0; t < 6; t++)
-                {
-                    if(gameObject.transform.parent != null)
-                        gameObject = gameObject.transform.parent.gameObject;
-                }
-
-                if ((gameObject != null) && (gameObject.tag == "Enemy"))
-                {
-                    if (timeValueToShoot > shootingSpeed)
-                    {
-
-                        //shoot
-
-            
-                    
-                        
-
-                        //shoot
-
-                        gameObject.GetComponent<EnemyClass>().BeShot(dame);
-                        timeValueToShoot = 0f;
-                    }
-                    break;
-                }
-            }
+            projectile.GetComponent<MyBullets>().dame = dame;
+            timeValueToShoot = 0;
         }
+        timeValueToShoot += Time.deltaTime;
+        
+        
     }
 
 

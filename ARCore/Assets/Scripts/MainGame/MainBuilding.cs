@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,6 +29,7 @@ public class MainBuilding : MonoBehaviour
         {
             Destroy(healthBarInstance);
             Destroy(this.gameObject);
+            Canvas2DManager.instance.LoseBoard.SetActive(true);
         }
     }
     void Update()

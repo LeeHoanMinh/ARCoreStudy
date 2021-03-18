@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8356935352600013966, guid: 0a06715701fe9114f870f6d799c5043b, type: 3}
       propertyPath: enemySpawnerRound.Array.data[1].numberOfGroups
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8356935352600013966, guid: 0a06715701fe9114f870f6d799c5043b, type: 3}
       propertyPath: enemySpawnerRound.Array.data[0].waitBetweenEachGroup
@@ -105,11 +105,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8356935352600013966, guid: 0a06715701fe9114f870f6d799c5043b, type: 3}
       propertyPath: enemySpawnerRound.Array.data[1].waitBetweenEachGroup
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8356935352600013966, guid: 0a06715701fe9114f870f6d799c5043b, type: 3}
       propertyPath: enemySpawnerRound.Array.data[1].waitForTheFirstSpawn
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8356935352600013966, guid: 0a06715701fe9114f870f6d799c5043b, type: 3}
       propertyPath: enemySpawnerRound.Array.data[0].enemyInstance.Array.size
@@ -159,6 +159,18 @@ PrefabInstance:
       propertyPath: enemySpawnerRound.Array.data[1].enemyInstance.Array.data[4]
       value: 
       objectReference: {fileID: 1681895189732608758, guid: b4ea35b73c8461041b400c4f319fc33a, type: 3}
+    - target: {fileID: 9059509274287735340, guid: 0a06715701fe9114f870f6d799c5043b, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059509274287735340, guid: 0a06715701fe9114f870f6d799c5043b, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059509274287735340, guid: 0a06715701fe9114f870f6d799c5043b, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a06715701fe9114f870f6d799c5043b, type: 3}
 --- !u!4 &6727261951173537725 stripped

@@ -28,13 +28,13 @@ public class HealthBar : MonoBehaviour
     {
         RectTransform rect = this.GetComponent<RectTransform>();
         float newWidth = rect.sizeDelta.x;
-        if ((preHealth <= 100) && (preHealth > 10))
+        if (preHealth > 10)
         {
-            newWidth += (float)(preHealth - 10) * 100/90;   
+            newWidth += (float)(Mathf.Min(100,preHealth) - 10) * 100/90;   
         }
-        if((preHealth <= 1000) && (preHealth > 100))
+        if (preHealth > 100)
         {
-            newWidth += (float)(preHealth - 100) * 200 / 900;
+            newWidth += (float)(Mathf.Min(1000,preHealth) - 100) * 200 / 900;
         }
 
         rect.sizeDelta = new Vector2(newWidth, rect.sizeDelta.y);
